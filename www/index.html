@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Brotato Item Creator</title>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="wiki.css">
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+	<link rel="manifest" href="favicon/site.webmanifest">
+	<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="favicon/favicon.ico">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="favicon/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- Vue + App -->
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script type="module" src="app.js"></script>
+</head>
+<body>
+
+	<header class="header">
+		<h1>Brotato Item Creator</h1>
+	</header>
+
+	<main id="app">
+
+		<!-- Create -->
+		<section class="panel">
+			<h2>Create</h2>
+
+			<div class="create">
+				<!-- @todo: loop dis pls -->
+				<div class="create__row">
+					<label class="create__label-wrap">
+						<div class="create__label-text">Tier</div>
+						<div class="create__field create__field--tier">
+							<select v-model="tier">
+								<option v-for="tierData in tiers" :value="tierData.num">
+									{{ tierData.text }}
+								</option>
+							</select>
+						</div>
+					</label>
+				</div>
+
+				<div class="create__row">
+					<label class="create__label-wrap">
+						<div class="create__label-text">Name</div>
+						<div class="create__field">
+							<input v-model="name" type="text">
+						</div>
+					</label>
+				</div>
+
+				<div class="create__row">
+					<label class="create__label-wrap">
+						<div class="create__label-text">Type</div>
+						<div class="create__field">
+							<input v-model="type" type="text">
+						</div>
+					</label>
+				</div>
+
+				<div class="create__row create__row--buttons">
+					<div class="create__label-wrap">
+						<div class="create__label-text create__label-text--empty">
+							<!-- Type Btns -->
+						</div>
+						<div class="create__field create__field--buttons">
+							<button class="btn" type="button" v-on:click="setType('Item')">Item</button>
+							<button class="btn" type="button" v-on:click="setType('Character')">Character</button>
+							<button class="btn" type="button" v-on:click="setType('Limited')">Limited</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="create__row">
+					<label class="create__label-wrap">
+						<div class="create__label-text">Width</div>
+						<div class="create__field create__field--width">
+							<input v-model="width" type="number" step="10" min="200" max="500">
+						</div>
+					</label>
+				</div>
+
+				<div class="create__row create__row--buttons">
+					<div class="create__label-wrap">
+						<div class="create__label-text create__label-text--empty">
+							<!-- Width Btns -->
+						</div>
+						<div class="create__field create__field--buttons">
+							<button class="btn" type="button" v-on:click="setWidth(200)">Min</button>
+							<button class="btn" type="button" v-on:click="setWidth(300)">Default</button>
+							<button class="btn" type="button" v-on:click="setWidth(500)">Max</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="create__row">
+					<label class="create__label-wrap">
+						<div class="create__label-text">
+							Image?
+						</div>
+						<div class="create__field create__field--has-checkbox">
+							<input type="checkbox" v-model="showImg">
+						</div>
+					</label>
+				</div>
+
+				<div class="create__row">
+					<label class="create__label-wrap create__label-wrap--nocols">
+						<div class="create__label-text">
+							Stats:
+						</div>
+
+						<div class="create__field create__field--stats">
+							<textarea type="checkbox" v-model="statsText"></textarea>
+						</div>
+					</label>
+
+					<div class="create__help">
+						Positive: <code class="text-positive">&lt;p&gt;+10&lt;/p&gt;</code>
+					</div>
+					<div class="create__help">
+						Negative: <code class="text-negative">&lt;n&gt;-10&lt;/n&gt;</code>
+					</div>
+					<div class="create__help">
+						Stat: <code class="text-cream">&lt;s&gt;Damage:&lt;/s&gt;</code>
+					</div>
+				</div>
+
+				<div class="create__row create__row--buttons">
+					<div class="create__label-wrap create__label-wrap--nocols">
+						<div class="create__label-text create__label-text--empty">
+							<!-- Stats Btns -->
+						</div>
+						<div class="create__field create__field--buttons">
+							<button type="button" class="btn" v-on:click="addStatLine('positive')">+</button>
+							<button type="button" class="btn" v-on:click="addStatLine('negative')">-</button>
+							<button type="button" class="btn" v-on:click="addStatLine('stat')">STAT</button>
+							<button type="button" class="btn btn--red" v-on:click="clearStats()">CLEAR</button>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+
+		<!-- Result -->
+		<section class="panel">
+			<h2>Result</h2>
+			<div class="result" data-result>
+				<div class="ibox rarity{{ tier }} rarity{{ tier }}dark rounded" :class="getBgClasses()" :style="getWidthInlineStyle()">
+					<div class="ibox__top">
+						<div class="ibox__icon rounded" v-if="showImg">
+							<img src="img/info.png">
+							<!-- <img src="img/random_icon.png"> -->
+						</div>
+
+						<div class="ibox__top-right">
+							<div class="ibox__name" :class="getNameClass()">{{ name }}</div>
+							<div class="ibox__type">{{ type }}</div>
+						</div>
+					</div>
+					<div class="ibox__stats">
+						<p v-html="getStatsText()"></p>
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="tips">
+			<strong>To take a screenshot on Windows:</strong>
+			<br>Press WinKey (<img src="img/winkey.svg">), type <code>Snipping Tool</code>, click the program.
+			<br>In the Snipping Tool: Click New, select a region.
+			<br>Click the Save to save the file, or Paste icon to copy to clipboard.
+			<!-- <div><em>keyboard shortcuts:</em></div> -->
+			<!-- <div>A = ranged | D = melee</div> -->
+			<!-- <div>UP/DOWN = change in small steps</div> -->
+			<!-- <div>ENTER = Calculate</div> -->
+		</div>
+		<div class="credit">
+			<div class="text-upper">made by Darkly77</div>
+			<div>Built in <a href="https://vuejs.org/" target="_blank">vue.js</a></div>
+			<div>
+				<a href="https://github.com/BrotatoMods/Brotato-Item-Creator-WebApp" target="_blank">
+					Source on Github
+				</a>
+			</div>
+		</div>
+	</footer>
+
+</body>
+</html>
