@@ -24,7 +24,7 @@ body {
 
 body * {
 	/* Not sure why, but this messes up the canvas render, cutting off the left side by 1-2px */
-	/* box-sizing: border-box; */
+	box-sizing: border-box;
 }
 
 h1 {
@@ -73,41 +73,58 @@ label {
 /* ===========================================================================*/
 
 body {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
 	min-height: 100vh;
 }
 
 header {
 	margin-top: 40px;
 	padding: 20px 40px;
+	text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+	header {
+		margin-top: unset;
+	}
 }
 
 main {
-	align-items: center;
-	align-items: flex-start;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+	gap: 1rem;
+	justify-items: start;
+	align-items: start;
+	padding: 0 40px;
 
 	/* Tests for small resolution (ie. my TV) */
 	/* max-width: 1263px; */
 	/* border: 1px dashed rgba(255, 255, 0, 0.2); */
 }
 
+@media only screen and (max-width: 500px) {
+	main {
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		justify-items: stretch;
+		padding: 0 10px;
+	}
+}
+
 .panel {
 	background: #151515;
 	border-radius: 10px;
 	border: 1px solid rgba(255, 255, 255, 0.05);
-	margin: 0 10px;
 	min-height: 400px;
 	padding: 15px;
 }
 
 .panel--stats {
-	width: 550px;
+	/* width: 550px; */
+}
+
+@media only screen and (max-width: 500px) {
+	.panel:last-of-type {
+		justify-self: center;
+	}
 }
 
 .result {
@@ -115,6 +132,12 @@ main {
 	justify-content: center;
 	margin-bottom: 20px;
 	min-width: 425px;
+}
+
+@media only screen and (max-width: 500px) {
+	.result {
+		min-width: unset;
+	}
 }
 
 .render .btn {
