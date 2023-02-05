@@ -167,6 +167,7 @@ main {
 
 .staticon img,
 .btn--staticon img {
+	height: auto;
 	vertical-align: middle;
 	width: 20px;
 }

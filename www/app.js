@@ -302,9 +302,10 @@ createApp({
 			const resultHtml = resultDupe.outerHTML;
 
 			// We don't need the temp element any more, we only needed its HTML
-			// (with all the inline stuff)
+			// (with all the inline stuff). Comment this out to preview how it should look
 			resultTemp.removeChild(resultDupe);
 
+			// Log the HTML markup that we'll add to the canvas
 			// console.log(resultHtml);
 
 			rasterizeHTML.drawHTML(resultHtml).then(function (renderResult) {
