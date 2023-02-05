@@ -188,11 +188,11 @@ createApp({
 		// ============================================================================
 
 		addStatLine(type = '') {
-			var lb   = ( !this.statsText.length ) ? '' : '\n';
-			var el   = '';
-			var sign = '';
-			var text1 = '';
-			var text2 = '';
+			let lb   = ( !this.statsText.length ) ? '' : '\n';
+			let el   = '';
+			let sign = '';
+			let text1 = '';
+			let text2 = '';
 
 			switch( type )
 			{
