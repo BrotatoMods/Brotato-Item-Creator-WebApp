@@ -109,6 +109,10 @@ https://brotato.wiki.spellsandguns.com/MediaWiki:Common.js
 	font-weight: bold;
 }
 
+.ibox__top-right {
+	width: 100%;
+}
+
 .ibox__type {
 	font-size: 17px;
 }
