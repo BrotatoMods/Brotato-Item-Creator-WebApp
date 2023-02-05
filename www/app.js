@@ -162,6 +162,7 @@ createApp({
 				showImg: this.showImg,
 				icon: this.icon,
 				width: this.width,
+				statsText: this.statsText,
 			}
 		},
 		getSavedItems() {
@@ -188,6 +189,7 @@ createApp({
 			this.showImg = itemData.showImg;
 			this.icon = itemData.icon;
 			this.width = itemData.width;
+			this.statsText = itemData.statsText;
 		},
 		deleteItem(itemIndex) {
 			this.myItems.splice(itemIndex, 1);
@@ -258,15 +260,7 @@ createApp({
 		},
 
 
-		// Stat Icons
-		// ============================================================================
-
-		getStatIcon() {
-
-		},
-
-
-		// Canvas + Saving
+		// Canvas (Image Saving)
 		// ============================================================================
 
 		renderCanvas() {
