@@ -70,12 +70,13 @@ body {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	/* justify-content: center; */
 	min-height: 100vh;
 }
 
 header {
 	padding: 20px 40px;
+	margin-top: 40px;
 }
 
 main {
@@ -260,12 +261,12 @@ main {
 }
 
 .btn--red {
-	background-color: #be2929;
+	background-color: #791a1a !important;
 	color: white;
 }
 
 .btn--red:hover {
-	background-color: #d45454;
+	background-color: #693c3c !important;
 }
 
 
