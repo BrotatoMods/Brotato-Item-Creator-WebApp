@@ -94,8 +94,8 @@ main {
 
 .panel {
 	border: 1px solid rgba(255,255,255, 0.05);
-	padding: 20px;
-	margin: 0 20px;
+	padding: 15px;
+	margin: 0 10px;
 	min-height: 400px;
 	border-radius: 10px;
 }
@@ -130,6 +130,10 @@ main {
 /* ===========================================================================*/
 
 /* Stuff that's not in the wiki's styles */
+
+.ibox__name {
+	word-break: break-word;
+}
 
 .ibox__type {
 	color: rgb(234, 226, 176)
@@ -318,6 +322,56 @@ main {
 	display: block;
 	width: 32px;
 }
+
+
+/* Saved Items */
+/* ===========================================================================*/
+
+.saved-items {
+	width: 200px;
+}
+
+.saved-item {
+	font-size: 0.9rem;
+	line-height: 1.5;
+	margin-bottom: 5px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.saved-item__main {
+	width: 90%;
+}
+
+.saved-item__main:hover {
+	background: rgba(255,255,255, 0.1);
+	cursor: pointer;
+}
+
+.saved-item__number {
+	color: rgb(255,255,255, 0.1);
+	margin-right: 5px;
+}
+
+.saved-item__name {
+	color: rgb(87, 87, 171);
+	word-break: break-word;
+}
+
+.saved-item__delete {
+	background-color: #791a1a;
+	height: 20px;
+	margin-left: 10px;
+	text-align: center;
+	width: 10%;
+	border-radius: 3px;
+}
+
+.saved-item__delete:hover {
+	background-color: #693c3c;
+	cursor: pointer;
+}
+
 
 
 /* Misc */

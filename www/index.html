@@ -178,6 +178,13 @@
 						</div>
 					</label>
 
+					<div class="create__field create__field--buttons">
+						<button type="button" class="btn" v-on:click="addStatLine('positive')">+</button>
+						<button type="button" class="btn" v-on:click="addStatLine('negative')">-</button>
+						<button type="button" class="btn" v-on:click="addStatLine('stat')">STAT</button>
+						<button type="button" class="btn btn--red" v-on:click="clearStats()">CLEAR</button>
+					</div>
+
 					<div class="create__help">
 						Positive: <code class="text-positive">[p]+10[/p]</code>
 					</div>
@@ -186,20 +193,6 @@
 					</div>
 					<div class="create__help">
 						Stat: <code class="text-cream">[s]Damage:[/s]</code>
-					</div>
-				</div>
-
-				<div class="create__row create__row--buttons">
-					<div class="create__label-wrap create__label-wrap--nocols">
-						<div class="create__label-text create__label-text--empty">
-							<!-- Stats Btns -->
-						</div>
-						<div class="create__field create__field--buttons">
-							<button type="button" class="btn" v-on:click="addStatLine('positive')">+</button>
-							<button type="button" class="btn" v-on:click="addStatLine('negative')">-</button>
-							<button type="button" class="btn" v-on:click="addStatLine('stat')">STAT</button>
-							<button type="button" class="btn btn--red" v-on:click="clearStats()">CLEAR</button>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -216,8 +209,6 @@
 							<img :src="getIconImgSrc(icon)">
 							<!-- <img src="img/icons/info.png"> -->
 							<!-- <img src="img/icons/questionmark.png"> -->
-							<!-- Page -->
-
 						</div>
 
 						<div class="ibox__top-right">
@@ -245,6 +236,28 @@
 		</section>
 
 
+		<!-- Saved -->
+		<section class="panel">
+			<h2>Saved Items</h2>
+
+			<div class="create">
+				<div class="create__row">
+					<div class="saved-items">
+						<div class="saved-item" v-for="myItemVal, myItemIndex in myItems">
+							<div class="saved-item__main" v-on:click="loadItem(myItemIndex)">
+								<span class="saved-item__number">{{ myItemIndex + 1 }}</span>
+								<span class="saved-item__name">{{ myItemVal.name }}</span>
+							</div>
+							<div class="saved-item__delete" v-on:click="deleteItem(myItemIndex)">
+								X
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<button class="btn btn--main" v-on:click="saveItem()">Save</button>
+		</section>
 
 
 	</main>

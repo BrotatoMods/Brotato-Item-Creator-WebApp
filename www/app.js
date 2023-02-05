@@ -15,16 +15,6 @@ createApp({
 				'[n]-4%[/n] Dodge'
 			].join('\n'),
 
-
-			// Render data:
-			// tiers: [
-			// 	{ num: 0, text: "Tier 0 (Character)" },
-			// 	{ num: 1, text: "Tier 1" },
-			// 	{ num: 2, text: "Tier 2" },
-			// 	{ num: 3, text: "Tier 3" },
-			// 	{ num: 4, text: "Tier 4" },
-			// ],
-
 			// Misc:
 			widthMin: 200,
 			widthDefault: 300,
@@ -45,7 +35,10 @@ createApp({
 				'Gun1': 'sg/gun1.png',
 				'Gun2': 'sg/gun2.png',
 				'Ring': 'sg/ring.png',
-			}
+			},
+
+			// Saved Items
+			myItems: this.getSavedItems(),
 		}
 	},
 	methods: {
@@ -72,8 +65,7 @@ createApp({
 		setType(type) {
 			this.type = type;
 
-			if ( type === 'Limited' )
-			{
+			if ( type === 'Limited' ) {
 				this.type = "Limited (5)";
 			}
 		},
@@ -82,13 +74,11 @@ createApp({
 			this.fixWidthInput();
 		},
 		fixWidthInput() {
-			if (this.width > this.widthMax)
-			{
+			if (this.width > this.widthMax) {
 				this.width = this.widthMax;
 			}
 
-			if (this.width < this.widthMin)
-			{
+			if (this.width < this.widthMin) {
 				this.width = this.widthMin;
 			}
 		},
@@ -100,6 +90,51 @@ createApp({
 		},
 		setIcon(key) {
 			this.icon = key;
+		},
+
+
+
+		// Saving + Loading
+		// ============================================================================
+
+		getItemStats() {
+			return {
+				tier: this.tier,
+				name: this.name,
+				type: this.type,
+				showImg: this.showImg,
+				icon: this.icon,
+				width: this.width,
+			}
+		},
+		getSavedItems() {
+			const storageItems = localStorage.getItem('my_items');
+			if (!storageItems) {
+				return [];
+			}
+			const storageItemsParsed = JSON.parse(storageItems);
+			console.log({'Saved Items':storageItemsParsed});
+			return storageItemsParsed;
+		},
+		saveItem() {
+			this.myItems.push(this.getItemStats())
+			this.saveStorageItems();
+		},
+		saveStorageItems() {
+			localStorage.setItem('my_items', JSON.stringify(this.myItems));
+		},
+		loadItem(itemIndex) {
+			const itemData = this.myItems[itemIndex];
+			this.tier = itemData.tier;
+			this.name = itemData.name;
+			this.type = itemData.type;
+			this.showImg = itemData.showImg;
+			this.icon = itemData.icon;
+			this.width = itemData.width;
+		},
+		deleteItem(itemIndex) {
+			this.myItems.splice(itemIndex, 1);
+			this.saveStorageItems();
 		},
 
 
@@ -116,22 +151,22 @@ createApp({
 			switch( type )
 			{
 				case 'positive':
-					el   = 'p';
-					sign = '+';
+					el    = 'p';
+					sign  = '+';
 					text1 = 'VALUE';
 					text2 = 'STAT';
 					break;
 
 				case 'negative':
-					el   = 'n';
-					sign = '-';
+					el    = 'n';
+					sign  = '-';
 					text1 = 'VALUE';
 					text2 = 'STAT';
 					break;
 
 				case 'stat':
-					el   = 's';
-					sign = '';
+					el    = 's';
+					sign  = '';
 					text1 = 'Damage:';
 					text2 = '30';
 					break;
@@ -162,12 +197,6 @@ createApp({
 			canvas.setAttribute( 'height', ibox.offsetHeight );
 
 			const resultDupe = result.cloneNode(true);
-
-			// console.log({result});
-			// console.log(result.innerHTML);
-			// console.log({resultDupe});
-			// console.log(resultDupe.innerHTML);
-
 			const resultTemp = document.getElementById('result-temp');
 
 			// Using `computedStyleToInlineStyle` only seems to work if the
@@ -184,15 +213,11 @@ createApp({
 			});
 
 			// Render Canvas
-			// const resultHtml = result.innerHTML;
 			const resultHtml = resultDupe.innerHTML;
-
 
 			// We don't need the temp element any more, we only needed its HTML
 			// (with all the inline stuff)
 			resultTemp.removeChild(resultDupe);
-
-
 
 			// console.log(resultHtml);
 
