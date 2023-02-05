@@ -69,6 +69,7 @@
 						</div>
 						-->
 						<div class="create__field create__field--buttons">
+							<!-- @todo: loop -->
 							<button class="btn btn--main btn--has-bg rarity0" type="button" v-on:click="setTier(0)" :class="tier === 0 ? 'btn--active' : ''">0</button>
 							<button class="btn btn--main btn--has-bg rarity1" type="button" v-on:click="setTier(1)" :class="tier === 1 ? 'btn--active' : ''">1</button>
 							<button class="btn btn--main btn--has-bg rarity2" type="button" v-on:click="setTier(2)" :class="tier === 2 ? 'btn--active' : ''">2</button>
@@ -163,13 +164,13 @@
 					</label>
 
 					<div class="create__help">
-						Positive: <code class="text-positive">&lt;p&gt;+10&lt;/p&gt;</code>
+						Positive: <code class="text-positive">[p]+10[/p]</code>
 					</div>
 					<div class="create__help">
-						Negative: <code class="text-negative">&lt;n&gt;-10&lt;/n&gt;</code>
+						Negative: <code class="text-negative">[n]-10[/n]</code>
 					</div>
 					<div class="create__help">
-						Stat: <code class="text-cream">&lt;s&gt;Damage:&lt;/s&gt;</code>
+						Stat: <code class="text-cream">[s]Damage:[/s]</code>
 					</div>
 				</div>
 

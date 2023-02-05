@@ -10,19 +10,19 @@ createApp({
 			showImg: true,
 			width: 300,
 			statsText: [
-				'<p>+8</p> Max HP',
-				'<n>-4%</n> Dodge'
+				'[p]+8[/p] Max HP',
+				'[n]-4%[/n] Dodge'
 			].join('\n'),
 
 
 			// Render data:
-			tiers: [
-				{ num: 0, text: "Tier 0 (Character)" },
-				{ num: 1, text: "Tier 1" },
-				{ num: 2, text: "Tier 2" },
-				{ num: 3, text: "Tier 3" },
-				{ num: 4, text: "Tier 4" },
-			],
+			// tiers: [
+			// 	{ num: 0, text: "Tier 0 (Character)" },
+			// 	{ num: 1, text: "Tier 1" },
+			// 	{ num: 2, text: "Tier 2" },
+			// 	{ num: 3, text: "Tier 3" },
+			// 	{ num: 4, text: "Tier 4" },
+			// ],
 
 			// Misc:
 			widthMin: 200,
@@ -39,12 +39,12 @@ createApp({
 		},
 		applyTextColors( str = '' ) {
 			//@todo: use obj + loop
-			str = str.replaceAll( '<p>', '<span class="text-positive">' );
-			str = str.replaceAll( '<n>', '<span class="text-negative">' );
-			str = str.replaceAll( '<s>', '<span class="text-cream">' );
-			str = str.replaceAll( '</p>', '</span>' );
-			str = str.replaceAll( '</n>', '</span>' );
-			str = str.replaceAll( '</s>', '</span>' );
+			str = str.replaceAll( '[p]', '<span class="text-positive">' );
+			str = str.replaceAll( '[n]', '<span class="text-negative">' );
+			str = str.replaceAll( '[s]', '<span class="text-cream">' );
+			str = str.replaceAll( '[/p]', '</span>' );
+			str = str.replaceAll( '[/n]', '</span>' );
+			str = str.replaceAll( '[/s]', '</span>' );
 			str = str.replaceAll( '\n', '<br>' );
 			return str;
 		},
