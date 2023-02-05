@@ -273,7 +273,8 @@ createApp({
 			canvas.setAttribute( 'width', ibox.offsetWidth );
 			canvas.setAttribute( 'height', ibox.offsetHeight );
 
-			const resultDupe = result.cloneNode(true);
+			// const resultDupe = result.cloneNode(true);
+			const resultDupe = ibox.cloneNode(true);
 			const resultTemp = document.getElementById('result-temp');
 
 			// Using `computedStyleToInlineStyle` only seems to work if the
@@ -298,7 +299,7 @@ createApp({
 			});
 
 			// Render Canvas
-			const resultHtml = resultDupe.innerHTML;
+			const resultHtml = resultDupe.outerHTML;
 
 			// We don't need the temp element any more, we only needed its HTML
 			// (with all the inline stuff)
