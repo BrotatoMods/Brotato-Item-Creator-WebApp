@@ -24,7 +24,8 @@ body {
 }
 
 body * {
-	box-sizing: border-box;
+	/* Not sure why, but this messes up the canvas render, cutting off the left side by 1-2px */
+	/* box-sizing: border-box; */
 }
 
 h1 {
@@ -115,7 +116,7 @@ main {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 20px;
-	min-width: 400px;
+	min-width: 425px;
 }
 
 .render .btn {
@@ -151,6 +152,7 @@ main {
 }
 
 .ibox {
+	width: 300px;
 	max-width: 400px;
 	min-width: 200px;
 }
@@ -449,3 +451,4 @@ footer {
 .mt-5 {
 	margin-top: 5px;
 }
+
