@@ -3,6 +3,7 @@
 :root {
 	--pastelgreen: 102, 185, 102;
 	--pastelred: 191, 89, 89;
+	color-scheme: dark;
 }
 
 
@@ -26,6 +27,7 @@ body * {
 
 h1 {
 	font-size: 1.8rem;
+	color: white;
 }
 
 h2 {
@@ -358,7 +360,8 @@ main {
 }
 
 .saved-item__name {
-	color: rgb(87, 87, 171);
+	/* color: rgb(87, 87, 171); */
+	color: #fff;
 	word-break: break-word;
 }
 
