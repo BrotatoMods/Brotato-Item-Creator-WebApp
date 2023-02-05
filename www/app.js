@@ -287,6 +287,14 @@ createApp({
 			//   outside of the element
 			computedStyleToInlineStyle(resultDupe, {
 				recursive: true,
+				properties: [
+					'align-items', 'background', 'background-color', 'border', 'border-radius', 'box-sizing', 'color',
+					'color-scheme', 'cursor', 'display', 'flex-direction', 'flex-grow', 'flex-shrink', 'flex-wrap',
+					'font-family', 'font-size', 'font-style', 'font-weight', 'height', 'justify-content', 'line-height',
+					'list-style', 'margin', 'margin-bottom', 'margin-left', 'margin-right', 'margin-top', 'max-height',
+					'max-width','min-height', 'min-width', 'opacity', 'padding', 'text-align', 'text-transform',
+					'transition', 'vertical-align', 'white-space', 'width', 'word-break',
+				]
 			});
 
 			// Render Canvas
