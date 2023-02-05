@@ -308,7 +308,7 @@ createApp({
 			// console.log(resultHtml);
 
 			rasterizeHTML.drawHTML(resultHtml).then(function (renderResult) {
-				console.log({renderResult});
+				// console.log({renderResult});
 				// The -8px accounts for browsers adding margins by default to body, ie: `body {margin: 8px}`
 				context.drawImage(renderResult.image, -8, -8);
 			});
