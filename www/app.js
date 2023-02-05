@@ -58,7 +58,7 @@ createApp({
 			myItems: this.getSavedItems(),
 
 			statIcons: {
-				'hp'              : 'max_hp.png',
+				'max_hp'          : 'max_hp.png',
 				'hp_regen'        : 'hp_regeneration.png',
 				'lifesteal'       : 'lifesteal.png',
 				'damage'          : 'percent_damage.png',
@@ -80,7 +80,6 @@ createApp({
 				// 'crit_chance'     : 'crit_chance.png',
 				// 'elemental_damage': 'elemental_damage.png',
 				// 'hp_regeneration' : 'hp_regeneration.png',
-				// 'max_hp'          : 'max_hp.png',
 				// 'melee_damage'    : 'melee_damage.png',
 				// 'percent_damage'  : 'percent_damage.png',
 				// 'ranged_damage'   : 'ranged_damage.png',
