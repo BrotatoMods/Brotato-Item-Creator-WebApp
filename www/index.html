@@ -248,7 +248,7 @@
 						<div class="saved-item" v-for="myItemVal, myItemIndex in myItems">
 							<div class="saved-item__main" v-on:click="loadItem(myItemIndex)">
 								<span class="saved-item__number">{{ myItemIndex + 1 }}</span>
-								<span class="saved-item__name">{{ myItemVal.name }}</span>
+								<span class="saved-item__name" :class="'colorrarity' + myItemVal.tier">{{ myItemVal.name }}</span>
 							</div>
 							<div class="saved-item__delete" v-on:click="deleteItem(myItemIndex)">
 								X
