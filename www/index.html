@@ -209,7 +209,7 @@
 		<!-- Result -->
 		<section class="panel">
 			<h2>Result</h2>
-			<div class="result" id="result">
+			<div class="result flex-center" id="result">
 				<div class="ibox rarity{{ tier }} rarity{{ tier }}dark rounded" :class="getBgClasses()" :style="getWidthInlineStyle()">
 					<div class="ibox__top">
 						<div class="ibox__icon rounded" v-if="showImg">
@@ -231,7 +231,7 @@
 				</div>
 			</div>
 
-			<div class="render">
+			<div class="render flex-center">
 				<button class="btn btn--submit" v-on:click="renderCanvas()">Render Image</button>
 
 				<div class="result" id="result-temp">
@@ -240,9 +240,12 @@
 				<canvas id="canvas" width="300" height="150">
 				</canvas>
 
-				<p class="tip">Right-click > <em>Copy image</em> / <em>Save image as</em></p>
+				<p class="tip mt-5">Right-click > <em>Copy image</em> / <em>Save image as</em></p>
 			</div>
 		</section>
+
+
+
 
 	</main>
 

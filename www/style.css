@@ -105,6 +105,24 @@ main {
 .result {
 	min-width: 400px;
 	margin-bottom: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.render {
+
+}
+.render .btn {
+	flex-grow: 0;
+}
+
+.flex-center {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+    align-items: center;
 }
 
 
@@ -134,7 +152,7 @@ main {
 .create {}
 
 .create__row {
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 .create__label-wrap {
@@ -152,7 +170,7 @@ main {
 .create__label-text {
 	width: 100px;
 	font-weight: 600;
-	padding: 10px;
+	padding: 5px 10px 10px 10px;
 }
 
 .create__label-text--empty {
@@ -247,7 +265,7 @@ main {
 }
 
 .btn--main {
-	padding: 10px;
+	padding: 10px 15px;
 	font-weight: 600;
 }
 
@@ -348,4 +366,8 @@ footer {
 
 .text-cream {
 	color: rgb(234, 226, 176);
+}
+
+.mt-5 {
+	margin-top: 5px;
 }
