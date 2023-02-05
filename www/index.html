@@ -181,7 +181,7 @@
 				</div>
 
 				<div class="create__field create__field--buttons create__field--icon-buttons">
-					<button type="button" class="btn btn--staticon" v-on:click="addStatIcon('armor')" v-for="value, key in statIcons">
+					<button type="button" class="btn btn--staticon" v-on:click="addStatIcon(key)" v-for="value, key in statIcons">
 						<img :src="'img/stats/' + value" :title="key">
 					</button>
 				</div>
