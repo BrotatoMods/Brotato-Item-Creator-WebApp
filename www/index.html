@@ -111,28 +111,6 @@
 				</div>
 
 				<div class="create__row">
-					<label class="create__label-wrap">
-						<div class="create__label-text">Width</div>
-						<div class="create__field create__field--width">
-							<input v-model="width" type="number" step="10" min="200" max="400" v-on:change="fixWidthInput()">
-						</div>
-					</label>
-				</div>
-
-				<div class="create__row create__row--buttons">
-					<div class="create__label-wrap">
-						<div class="create__label-text create__label-text--empty">
-							<!-- Width Btns -->
-						</div>
-						<div class="create__field create__field--buttons">
-							<button class="btn" type="button" v-on:click="setWidth(200)">Min</button>
-							<button class="btn" type="button" v-on:click="setWidth(300)">Default</button>
-							<button class="btn" type="button" v-on:click="setWidth(400)">Max</button>
-						</div>
-					</div>
-				</div>
-
-				<div class="create__row">
 					<div class="create__label-wrap">
 						<div class="create__label-text">
 							Icon
@@ -156,6 +134,28 @@
 							<input type="checkbox" v-model="showImg">
 						</div>
 					</label>
+				</div>
+
+				<div class="create__row">
+					<label class="create__label-wrap">
+						<div class="create__label-text">Width</div>
+						<div class="create__field create__field--width">
+							<input v-model="width" type="number" step="10" min="200" max="400" v-on:change="fixWidthInput()">
+						</div>
+					</label>
+				</div>
+
+				<div class="create__row create__row--buttons">
+					<div class="create__label-wrap">
+						<div class="create__label-text create__label-text--empty">
+							<!-- Width Btns -->
+						</div>
+						<div class="create__field create__field--buttons">
+							<button class="btn" type="button" v-on:click="setWidth(200)">Min</button>
+							<button class="btn" type="button" v-on:click="setWidth(300)">Default</button>
+							<button class="btn" type="button" v-on:click="setWidth(400)">Max</button>
+						</div>
+					</div>
 				</div>
 
 			</div>
