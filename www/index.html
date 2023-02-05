@@ -104,7 +104,7 @@
 					<label class="create__label-wrap">
 						<div class="create__label-text">Width</div>
 						<div class="create__field create__field--width">
-							<input v-model="width" type="number" step="10" min="200" max="500">
+							<input v-model="width" type="number" step="10" min="200" max="400">
 						</div>
 					</label>
 				</div>
@@ -117,7 +117,7 @@
 						<div class="create__field create__field--buttons">
 							<button class="btn" type="button" v-on:click="setWidth(200)">Min</button>
 							<button class="btn" type="button" v-on:click="setWidth(300)">Default</button>
-							<button class="btn" type="button" v-on:click="setWidth(500)">Max</button>
+							<button class="btn" type="button" v-on:click="setWidth(400)">Max</button>
 						</div>
 					</div>
 				</div>
@@ -226,16 +226,14 @@
 
 
 	<footer>
+		<!--
 		<div class="tips">
 			<strong>To take a screenshot on Windows:</strong>
 			<br>Press WinKey (<img src="img/winkey.svg">), type <code>Snipping Tool</code>, click the program.
 			<br>In the Snipping Tool: Click New, select a region.
 			<br>Click the Save to save the file, or Paste icon to copy to clipboard.
-			<!-- <div><em>keyboard shortcuts:</em></div> -->
-			<!-- <div>A = ranged | D = melee</div> -->
-			<!-- <div>UP/DOWN = change in small steps</div> -->
-			<!-- <div>ENTER = Calculate</div> -->
 		</div>
+		-->
 		<div class="credit">
 			<div class="text-upper">made by Darkly77</div>
 			<div>Built in <a href="https://vuejs.org/" target="_blank">vue.js</a></div>

@@ -87,6 +87,10 @@ main {
 	align-items: flex-start;
 	/* max-width: 1600px; */
 	/* width: 100%; */
+
+    /* Tests for small resolution */
+	max-width: 1263px;
+    border: 1px dashed rgba(255, 255, 0, 0.2);
 }
 
 .panel {
@@ -98,7 +102,7 @@ main {
 }
 
 .result {
-	min-width: 500px;
+	min-width: 400px;
 }
 
 
