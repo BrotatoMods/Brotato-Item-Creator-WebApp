@@ -11,7 +11,6 @@
 	color-scheme: dark;
 }
 
-
 html {
 	font-size: 16px;
 }
@@ -53,7 +52,7 @@ strong {
 
 code {
 	background-color: rgba(0, 0, 0, 0.8);
-	color: rgba(255,255,255,0.8);
+	color: rgba(255, 255, 255, 0.8);
 	font-family: consolas;
 	padding: 1px;
 }
@@ -69,7 +68,6 @@ pre {
 label {
 	cursor: pointer;
 }
-
 
 /* Main */
 /* ===========================================================================*/
@@ -132,7 +130,6 @@ main {
 	width: 100%;
 }
 
-
 /* Ibox Edits */
 /* ===========================================================================*/
 
@@ -157,7 +154,6 @@ main {
 	min-width: 200px;
 }
 
-
 /* Ibox Misc */
 /* ===========================================================================*/
 
@@ -175,7 +171,6 @@ main {
 .btn--staticon {
 	margin-bottom: 3px;
 }
-
 
 /* Create */
 /* ===========================================================================*/
@@ -232,7 +227,6 @@ main {
 	padding: 0 10px;
 }
 
-
 /* Special Fields */
 /* ----------------------------------------------------------------------*/
 
@@ -272,14 +266,12 @@ main {
 	max-width: 380px;
 }
 
-
 /* Canvas */
 /* ===========================================================================*/
 
 #canvas {
 	border: 1px dashed rgb(52, 52, 52);
 }
-
 
 /* Buttons */
 /* ===========================================================================*/
@@ -323,7 +315,6 @@ main {
 	background-color: #693c3c !important; /* @todo: bad */
 }
 
-
 /* Icon Buttons */
 /* ===========================================================================*/
 
@@ -341,12 +332,12 @@ main {
 }
 
 .icon-btn:hover {
-	background: rgba(0,0,0,0.8);
+	background: rgba(0, 0, 0, 0.8);
 	border-radius: 3px;
 }
 
 .icon-btn--active {
-	background: rgba(0,0,0,0.8);
+	background: rgba(0, 0, 0, 0.8);
 	border-radius: 3px;
 }
 
@@ -354,7 +345,6 @@ main {
 	display: block;
 	width: 32px;
 }
-
 
 /* Saved Items */
 /* ===========================================================================*/
@@ -376,12 +366,12 @@ main {
 }
 
 .saved-item__main:hover {
-	background: rgba(255,255,255, 0.1);
+	background: rgba(255, 255, 255, 0.1);
 	cursor: pointer;
 }
 
 .saved-item__number {
-	color: rgb(255,255,255, 0.1);
+	color: rgb(255, 255, 255, 0.1);
 	margin-right: 5px;
 }
 
@@ -391,7 +381,7 @@ main {
 }
 
 .saved-item__delete {
-	background-color: var(--app-negative-base);;
+	background-color: var(--app-negative-base);
 	border-radius: 3px;
 	height: 20px;
 	margin-left: 10px;
@@ -400,10 +390,9 @@ main {
 }
 
 .saved-item__delete:hover {
-	background-color: var(--app-negative-active);;
+	background-color: var(--app-negative-active);
 	cursor: pointer;
 }
-
 
 /* Misc */
 /* ===========================================================================*/
@@ -411,8 +400,6 @@ main {
 .tip {
 	font-size: 0.7rem;
 }
-
-
 
 /* Footer */
 /* ===========================================================================*/
@@ -430,7 +417,6 @@ footer {
 	font-size: 0.7rem;
 	margin-top: 20px;
 }
-
 
 /* Utils */
 /* ===========================================================================*/
@@ -456,4 +442,3 @@ footer {
 .mt-5 {
 	margin-top: 5px;
 }
-
