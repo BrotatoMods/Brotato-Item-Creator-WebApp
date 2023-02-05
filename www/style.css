@@ -108,7 +108,7 @@ main {
 }
 
 .panel--stats {
-	width: 410px;
+	width: 550px;
 }
 
 .result {
@@ -259,6 +259,10 @@ main {
 
 .create__row--buttons {
 	margin-top: -5px;
+}
+
+.create__field--icon-buttons {
+	max-width: 380px;
 }
 
 

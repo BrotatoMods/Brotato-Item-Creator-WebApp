@@ -38,41 +38,52 @@ createApp({
 			},
 
 			// Default Text
-			defaultWeaponText: [
-				'[s]Damage[/s]: 10',
+			defaultWeaponTextMelee: [
+				'[s]Damage[/s]: 10 (50% [i]melee[/i])',
 				'[s]Critical[/s]: x2 (3% chance)',
 				'[s]Cooldown[/s]: 0.7s',
 				'[s]Knockback[/s]: 10',
+				'[s]Range[/s]: 300 (Melee)',
+			].join('\n'),
+			defaultWeaponTextRanged: [
+				'[s]Damage[/s]: 10 (50% [i]ranged[/i])',
+				'[s]Critical[/s]: x1.5 (3% chance)',
+				'[s]Cooldown[/s]: 0.7s',
+				'[s]Knockback[/s]: 10',
 				'[s]Range[/s]: 500 (Ranged)',
+				'[s]Piercing[/s]: 1',
 			].join('\n'),
 
 			// Saved Items
 			myItems: this.getSavedItems(),
 
 			statIcons: {
-				'armor'           : 'armor.png',
-				'attack_speed'    : 'attack_speed.png',
-				// 'crit_chance'     : 'crit_chance.png',
-				'crit'            : 'crit_chance.png',
-				'dodge'           : 'dodge.png',
-				// 'elemental_damage': 'elemental_damage.png',
-				'elemental'       : 'elemental_damage.png',
-				'engineering'     : 'engineering.png',
-				'harvesting'      : 'harvesting.png',
-				// 'hp_regeneration' : 'hp_regeneration.png',
+				'hp'              : 'max_hp.png',
 				'hp_regen'        : 'hp_regeneration.png',
 				'lifesteal'       : 'lifesteal.png',
-				'luck'            : 'luck.png',
-				// 'max_hp'          : 'max_hp.png',
-				'hp'              : 'max_hp.png',
-				// 'melee_damage'    : 'melee_damage.png',
-				'melee'           : 'melee_damage.png',
 				'damage'          : 'percent_damage.png',
-				// 'percent_damage'  : 'percent_damage.png',
-				'range'           : 'range.png',
-				// 'ranged_damage'   : 'ranged_damage.png',
+
+				'melee'           : 'melee_damage.png',
 				'ranged'          : 'ranged_damage.png',
+				'elemental'       : 'elemental_damage.png',
+				'attack_speed'    : 'attack_speed.png',
+				'crit'            : 'crit_chance.png',
+				'engineering'     : 'engineering.png',
+				'range'           : 'range.png',
+				'armor'           : 'armor.png',
+
+				'dodge'           : 'dodge.png',
 				'speed'           : 'speed.png',
+				'luck'            : 'luck.png',
+				'harvesting'      : 'harvesting.png',
+
+				// 'crit_chance'     : 'crit_chance.png',
+				// 'elemental_damage': 'elemental_damage.png',
+				// 'hp_regeneration' : 'hp_regeneration.png',
+				// 'max_hp'          : 'max_hp.png',
+				// 'melee_damage'    : 'melee_damage.png',
+				// 'percent_damage'  : 'percent_damage.png',
+				// 'ranged_damage'   : 'ranged_damage.png',
 			},
 		}
 	},
@@ -188,7 +199,7 @@ createApp({
 		// ============================================================================
 
 		addStatLine(type = '') {
-			let lb   = ( !this.statsText.length ) ? '' : '\n';
+			const lb   = ( !this.statsText.length ) ? '' : '\n';
 			let el   = '';
 			let sign = '';
 			let text1 = '';
@@ -213,8 +224,8 @@ createApp({
 				case 'stat':
 					el    = 's';
 					sign  = '';
-					text1 = 'Damage:';
-					text2 = '30';
+					text1 = 'NAME:';
+					text2 = 'VALUE';
 					break;
 			}
 
@@ -228,6 +239,22 @@ createApp({
 		},
 		addStatIcon(key) {
 			this.statsText += `[i]${key}[/i]`;
+		},
+		addWeaponStats(type = 'melee') {
+			const lb = ( !this.statsText.length ) ? '' : '\n';
+			let text = '';
+
+			switch( type )
+			{
+				case 'melee':
+					text = this.defaultWeaponTextMelee;
+					break;
+				case 'ranged':
+					text = this.defaultWeaponTextRanged;
+					break;
+			}
+
+			this.statsText += lb + text;
 		},
 
 

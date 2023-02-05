@@ -172,9 +172,11 @@
 				</div>
 
 				<div class="create__field create__field--buttons">
-					<button type="button" class="btn" v-on:click="addStatLine('positive')">+</button>
-					<button type="button" class="btn" v-on:click="addStatLine('negative')">-</button>
-					<button type="button" class="btn" v-on:click="addStatLine('stat')">STAT</button>
+					<button type="button" class="btn" v-on:click="addStatLine('positive')">Positive</button>
+					<button type="button" class="btn" v-on:click="addStatLine('negative')">Negative</button>
+					<button type="button" class="btn" v-on:click="addStatLine('stat')">Stat</button>
+					<button type="button" class="btn" v-on:click="addWeaponStats('melee')">Weapon (M)</button>
+					<button type="button" class="btn" v-on:click="addWeaponStats('ranged')">Weapon (R)</button>
 					<button type="button" class="btn btn--red" v-on:click="clearStats()">CLEAR</button>
 				</div>
 
@@ -192,6 +194,9 @@
 				</div>
 				<div class="create__help">
 					Stat: <code class="text-cream">[s]Damage:[/s]</code>
+				</div>
+				<div class="create__help">
+					Icon: <code class="">[i]armor[/i]</code>
 				</div>
 		</section>
 
