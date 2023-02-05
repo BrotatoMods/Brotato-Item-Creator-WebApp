@@ -118,7 +118,7 @@ createApp({
 
 		},
 		getWidthInlineStyle() {
-			return `width: ${this.width}px;`
+			return `width: ${this.width}px;`;
 		},
 		setType(type) {
 			this.type = type;
