@@ -8,6 +8,7 @@ createApp({
 			name: 'My Item',
 			type: 'Item',
 			showImg: true,
+			icon: 'Page',
 			width: 300,
 			statsText: [
 				'[p]+8[/p] Max HP',
@@ -28,6 +29,23 @@ createApp({
 			widthMin: 200,
 			widthDefault: 300,
 			widthMax: 400,
+
+			// Icons
+			icons: {
+				'Page' : 'info.png',
+				'Question ': 'questionmark.png',
+				'Character': 'character-base.png',
+				'Character ?': 'character-base-questionmark.png',
+				'Artifact': 'sg/artifact.png',
+				'Axe': 'sg/axe.png',
+				'Ball': 'sg/ball.png',
+				'Bomb': 'sg/bomb.png',
+				'Book': 'sg/book.png',
+				'Device': 'sg/device.png',
+				'Gun1': 'sg/gun1.png',
+				'Gun2': 'sg/gun2.png',
+				'Ring': 'sg/ring.png',
+			}
 		}
 	},
 	methods: {
@@ -76,6 +94,12 @@ createApp({
 		},
 		setTier(num) {
 			this.tier = num;
+		},
+		getIconImgSrc(key) {
+			return 'img/icons/' + this.icons[key];
+		},
+		setIcon(key) {
+			this.icon = key;
 		},
 
 

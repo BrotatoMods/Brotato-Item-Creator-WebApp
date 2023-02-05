@@ -133,9 +133,24 @@
 				</div>
 
 				<div class="create__row">
+					<div class="create__label-wrap">
+						<div class="create__label-text">
+							Icon
+						</div>
+						<div class="create__field create__field--icons">
+							<div class="icon-btns">
+								<div class="icon-btn" v-for="val, key in icons" :class="( icon === key ) ? 'icon-btn--active' : ''">
+									<img :src="getIconImgSrc(key)" v-on:click="setIcon(key)">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="create__row">
 					<label class="create__label-wrap">
 						<div class="create__label-text">
-							Image?
+							Icon?
 						</div>
 						<div class="create__field create__field--has-checkbox">
 							<input type="checkbox" v-model="showImg">
@@ -198,8 +213,11 @@
 				<div class="ibox rarity{{ tier }} rarity{{ tier }}dark rounded" :class="getBgClasses()" :style="getWidthInlineStyle()">
 					<div class="ibox__top">
 						<div class="ibox__icon rounded" v-if="showImg">
-							<img src="img/info.png">
-							<!-- <img src="img/random_icon.png"> -->
+							<img :src="getIconImgSrc(icon)">
+							<!-- <img src="img/icons/info.png"> -->
+							<!-- <img src="img/icons/questionmark.png"> -->
+							<!-- Page -->
+
 						</div>
 
 						<div class="ibox__top-right">
@@ -213,23 +231,17 @@
 				</div>
 			</div>
 
-			<br>
+			<div class="render">
+				<button class="btn btn--submit" v-on:click="renderCanvas()">Render Image</button>
 
-			<button class="btn btn--submit" v-on:click="renderCanvas()">Render Image</button>
+				<div class="result" id="result-temp">
+				</div>
 
-			<br>
+				<canvas id="canvas" width="300" height="150">
+				</canvas>
 
-			<div class="result" id="result-temp">
+				<p class="tip">Right-click > <em>Copy image</em> / <em>Save image as</em></p>
 			</div>
-
-			<br>
-
-			<canvas id="canvas" width="300" height="150">
-			</canvas>
-
-			<br>
-
-			<p class="tip">Right-click > <em>Copy image</em> / <em>Save image as</em></p>
 		</section>
 
 	</main>
