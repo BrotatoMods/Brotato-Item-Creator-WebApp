@@ -105,8 +105,9 @@ https://brotato.wiki.spellsandguns.com/MediaWiki:Common.js
 }
 
 .ibox__name {
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: bold;
+	line-height: 1.2;
 }
 
 .ibox__top-right {
@@ -114,11 +115,11 @@ https://brotato.wiki.spellsandguns.com/MediaWiki:Common.js
 }
 
 .ibox__type {
-	font-size: 17px;
+	font-size: 19px;
 }
 
 .ibox__stats {
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 1.5;
 	white-space: pre-wrap;
 }
