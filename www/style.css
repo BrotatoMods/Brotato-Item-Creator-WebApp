@@ -107,6 +107,10 @@ main {
 	padding: 15px;
 }
 
+.panel--stats {
+	width: 410px;
+}
+
 .result {
 	display: flex;
 	justify-content: center;
@@ -149,6 +153,24 @@ main {
 .ibox {
 	max-width: 400px;
 	min-width: 200px;
+}
+
+
+/* Ibox Misc */
+/* ===========================================================================*/
+
+.staticon {
+	display: inline-block;
+}
+
+.staticon img,
+.btn--staticon img {
+	vertical-align: middle;
+	width: 20px;
+}
+
+.btn--staticon {
+	margin-bottom: 3px;
 }
 
 

@@ -163,39 +163,36 @@
 
 
 		<!-- Stats -->
-		<section class="panel">
+		<section class="panel panel--stats">
 			<h2>Stats</h2>
 
 			<div class="create">
-				<div class="create__row">
-					<label class="create__label-wrap create__label-wrap--nocols">
-						<!-- <div class="create__label-text"> -->
-							<!-- Stats: -->
-						<!-- </div> -->
-
-						<div class="create__field create__field--stats">
-							<textarea type="checkbox" v-model="statsText"></textarea>
-						</div>
-					</label>
-
-					<div class="create__field create__field--buttons">
-						<button type="button" class="btn" v-on:click="addStatLine('positive')">+</button>
-						<button type="button" class="btn" v-on:click="addStatLine('negative')">-</button>
-						<button type="button" class="btn" v-on:click="addStatLine('stat')">STAT</button>
-						<button type="button" class="btn btn--red" v-on:click="clearStats()">CLEAR</button>
-					</div>
-
-					<div class="create__help">
-						Positive: <code class="text-positive">[p]+10[/p]</code>
-					</div>
-					<div class="create__help">
-						Negative: <code class="text-negative">[n]-10[/n]</code>
-					</div>
-					<div class="create__help">
-						Stat: <code class="text-cream">[s]Damage:[/s]</code>
-					</div>
+				<div class="create__field create__field--stats">
+					<textarea type="checkbox" v-model="statsText"></textarea>
 				</div>
-			</div>
+
+				<div class="create__field create__field--buttons">
+					<button type="button" class="btn" v-on:click="addStatLine('positive')">+</button>
+					<button type="button" class="btn" v-on:click="addStatLine('negative')">-</button>
+					<button type="button" class="btn" v-on:click="addStatLine('stat')">STAT</button>
+					<button type="button" class="btn btn--red" v-on:click="clearStats()">CLEAR</button>
+				</div>
+
+				<div class="create__field create__field--buttons create__field--icon-buttons">
+					<button type="button" class="btn btn--staticon" v-on:click="addStatIcon('armor')" v-for="value, key in statIcons">
+						<img :src="'img/stats/' + value" :title="key">
+					</button>
+				</div>
+
+				<div class="create__help">
+					Positive: <code class="text-positive">[p]+10[/p]</code>
+				</div>
+				<div class="create__help">
+					Negative: <code class="text-negative">[n]-10[/n]</code>
+				</div>
+				<div class="create__help">
+					Stat: <code class="text-cream">[s]Damage:[/s]</code>
+				</div>
 		</section>
 
 
