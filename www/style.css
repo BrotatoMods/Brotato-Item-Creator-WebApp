@@ -6,7 +6,6 @@
 	color-scheme: dark;
 }
 
-
 html {
 	font-size: 16px;
 }
@@ -17,8 +16,12 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	line-height: 1.8;
 
-	background: rgb(88,88,88);
-	background: linear-gradient(180deg, rgba(88,88,88,1) 0%, rgba(39,39,39,1) 100%);
+	background: rgb(88, 88, 88);
+	background: linear-gradient(
+		180deg,
+		rgba(88, 88, 88, 1) 0%,
+		rgba(39, 39, 39, 1) 100%
+	);
 }
 
 body * {
@@ -47,18 +50,17 @@ em {
 strong {
 	font-weight: 600;
 }
-
 code {
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0, 0, 0, 0.8);
 	font-family: consolas;
-	color: rgba(255,255,255,0.8);
+	color: rgba(255, 255, 255, 0.8);
 	padding: 1px;
 }
 
 pre {
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0, 0, 0, 0.8);
 	font-family: consolas;
-	color: rgba(255,255,255,0.8);
+	color: rgba(255, 255, 255, 0.8);
 	padding: 1px;
 	white-space: pre-wrap;
 }
@@ -67,14 +69,13 @@ label {
 	cursor: pointer;
 }
 
-
 /* Main */
 /* ===========================================================================*/
 
 body {
-	align-items: center;
+	/* align-items: center;
 	display: flex;
-	flex-direction: column;
+	flex-direction: column; */
 	/* justify-content: center; */
 	min-height: 100vh;
 }
@@ -84,23 +85,33 @@ header {
 	margin-top: 40px;
 }
 
-main {
-	align-items: center;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	justify-content: space-between;
-	align-items: flex-start;
+@media only screen and (max-width: 800px) {
+	header {
+		padding: 20px 12px;
+		margin-top: 0;
+	}
+}
 
-    /* Tests for small resolution */
-	/* max-width: 1263px; */
-    /* border: 1px dashed rgba(255, 255, 0, 0.2); */
+main {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	gap: 1rem;
+	justify-items: center;
+	padding: 0 40px;
+}
+
+@media only screen and (max-width: 800px) {
+	main {
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		padding: 0 10px;
+	}
 }
 
 .panel {
-	border: 1px solid rgba(255,255,255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.05);
 	padding: 15px;
-	margin: 0 10px;
+	width: 100%;
+	max-width: 500px;
 	min-height: 400px;
 	border-radius: 10px;
 	background: #151515;
@@ -109,14 +120,12 @@ main {
 /* .render {} */
 
 .result {
-	min-width: 400px;
 	margin-bottom: 20px;
 	display: flex;
 	justify-content: center;
 }
 
 .render {
-
 }
 .render .btn {
 	flex-grow: 0;
@@ -128,9 +137,8 @@ main {
 	flex-wrap: wrap;
 	justify-content: center;
 	width: 100%;
-    align-items: center;
+	align-items: center;
 }
-
 
 /* Ibox Edits */
 /* ===========================================================================*/
@@ -142,7 +150,7 @@ main {
 }
 
 .ibox__type {
-	color: rgb(234, 226, 176)
+	color: rgb(234, 226, 176);
 }
 
 .ibox__icon {
@@ -151,15 +159,14 @@ main {
 }
 
 .ibox {
-	min-width: 200px;
 	max-width: 400px;
 }
-
 
 /* Create */
 /* ===========================================================================*/
 
-.create {}
+.create {
+}
 
 .create__row {
 	margin-bottom: 10px;
@@ -192,13 +199,13 @@ main {
 .create__field input[type="number"],
 .create__field textarea {
 	/* padding: 5px; */
-    background: black;
-    border-radius: 3px;
-    border: 1px solid grey;
-    color: white;
-    font-size: 1rem;
-    padding: 10px;
-    width: 200px;
+	background: black;
+	border-radius: 3px;
+	border: 1px solid grey;
+	color: white;
+	font-size: 1rem;
+	padding: 10px;
+	width: 200px;
 }
 
 .create__field input[type="checkbox"] {
@@ -209,7 +216,6 @@ main {
 .create__help {
 	padding: 0 10px;
 }
-
 
 /* Special Fields */
 /* ----------------------------------------------------------------------*/
@@ -229,7 +235,6 @@ main {
 .create__field--stats textarea {
 	max-height: 300px;
 	min-height: 150px;
-	min-width: 300px;
 	max-width: 500px;
 	width: 100%;
 }
@@ -242,10 +247,9 @@ main {
 	margin-right: 5px;
 }
 
-.create__row--buttons  {
+.create__row--buttons {
 	margin-top: -5px;
 }
-
 
 /* Canvas */
 /* ===========================================================================*/
@@ -253,7 +257,6 @@ main {
 #canvas {
 	border: 1px dashed rgb(52, 52, 52);
 }
-
 
 /* Buttons */
 /* ===========================================================================*/
@@ -263,15 +266,15 @@ main {
 	padding: 5px 10px;
 	border-radius: 4px;
 	cursor: pointer;
-	color: rgba(255,255,255, 0.6);
+	color: rgba(255, 255, 255, 0.6);
 }
 
 .btn:not(.btn--has-bg) {
-	background: rgba(255,255,255, 0.1);
+	background: rgba(255, 255, 255, 0.1);
 }
 
 .btn:not(.btn--has-bg):hover {
-	background: rgba(255,255,255, 0.3);
+	background: rgba(255, 255, 255, 0.3);
 }
 
 .btn--main {
@@ -297,7 +300,6 @@ main {
 	background-color: #693c3c !important;
 }
 
-
 /* Icon Buttons */
 /* ===========================================================================*/
 
@@ -315,12 +317,12 @@ main {
 }
 
 .icon-btn:hover {
-	background: rgba(0,0,0,0.8);
+	background: rgba(0, 0, 0, 0.8);
 	border-radius: 3px;
 }
 
 .icon-btn--active {
-	background: rgba(0,0,0,0.8);
+	background: rgba(0, 0, 0, 0.8);
 	border-radius: 3px;
 }
 
@@ -328,7 +330,6 @@ main {
 	display: block;
 	width: 32px;
 }
-
 
 /* Saved Items */
 /* ===========================================================================*/
@@ -350,12 +351,12 @@ main {
 }
 
 .saved-item__main:hover {
-	background: rgba(255,255,255, 0.1);
+	background: rgba(255, 255, 255, 0.1);
 	cursor: pointer;
 }
 
 .saved-item__number {
-	color: rgb(255,255,255, 0.1);
+	color: rgb(255, 255, 255, 0.1);
 	margin-right: 5px;
 }
 
@@ -379,16 +380,12 @@ main {
 	cursor: pointer;
 }
 
-
-
 /* Misc */
 /* ===========================================================================*/
 
 .tip {
 	font-size: 0.7rem;
 }
-
-
 
 /* Footer */
 /* ===========================================================================*/
@@ -406,7 +403,6 @@ footer {
 	font-size: 0.7rem;
 	margin-top: 20px;
 }
-
 
 /* Utils */
 /* ===========================================================================*/
