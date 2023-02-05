@@ -1,5 +1,11 @@
 /* Global */
 
+:root {
+	--pastelgreen: 102, 185, 102;
+	--pastelred: 191, 89, 89;
+}
+
+
 html {
 	font-size: 16px;
 }
@@ -90,6 +96,11 @@ main {
 	min-height: 400px;
 	border-radius: 10px;
 }
+
+.result {
+	min-width: 500px;
+}
+
 
 /* Ibox Edits */
 /* ===========================================================================*/
@@ -197,7 +208,15 @@ main {
 }
 
 
-/* Misc */
+/* Canvas */
+/* ===========================================================================*/
+
+#canvas {
+	border: 1px dashed rgb(52, 52, 52);
+}
+
+
+/* Buttons */
 /* ===========================================================================*/
 
 .btn {
@@ -206,6 +225,7 @@ main {
 	padding: 5px 10px;
 	/* border-radius: 3px; */
 	cursor: pointer;
+	color: rgba(255,255,255, 0.6);
 }
 
 .btn:hover {
@@ -219,6 +239,15 @@ main {
 
 .btn--red:hover {
 	background-color: #d45454;
+}
+
+
+
+/* Misc */
+/* ===========================================================================*/
+
+.tip {
+	font-size: 0.7rem;
 }
 
 
@@ -250,10 +279,12 @@ footer {
 
 .text-positive {
 	color: rgb(0, 255, 0);
+	/* color: rgb(var(--pastelgreen)); */
 }
 
 .text-negative {
 	color: rgb(244, 0, 0);
+	/* color: rgb(var(--pastelred)); */
 }
 
 .text-cream {

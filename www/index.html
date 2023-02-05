@@ -5,9 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Brotato Item Creator</title>
-	<link rel="stylesheet" href="reset.css">
-	<link rel="stylesheet" href="wiki.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="/reset.css">
+	<link rel="stylesheet" href="/wiki.css">
+	<link rel="stylesheet" href="/style.css">
 
 	<!-- Favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
@@ -20,8 +20,26 @@
 	<meta name="msapplication-config" content="favicon/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
 
+	<!--
+	Name: ResterizeHTML
+	Desc: Converts DOM to canvas, so users can save an image of their result
+	URLG: https://github.com/cburgmer/rasterizeHTML.js/
+	URLN: https://www.npmjs.com/package/rasterizehtml
+	-->
+	<script src="https://unpkg.com/rasterizehtml@1.3.1/dist/rasterizeHTML.allinone.js"></script>
+
+	<!--
+	Name: computed-style-to-inline-style
+	Desc: Applies inline styles to the element before it's converted to canvas
+	      See why this is needed: https://github.com/cburgmer/rasterizeHTML.js/issues/200
+	ULRG: https://github.com/lukehorvat/computed-style-to-inline-style
+	URLN: https://www.npmjs.com/package/computed-style-to-inline-style
+	-->
+	<script src="https://unpkg.com/computed-style-to-inline-style@3.0.0/dist/index.js"></script>
+
 	<!-- Vue + App -->
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<!-- <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script> -->
 	<script type="module" src="app.js"></script>
 </head>
 <body>
@@ -32,9 +50,9 @@
 
 	<main id="app">
 
-		<!-- Create -->
+		<!-- Settings -->
 		<section class="panel">
-			<h2>Create</h2>
+			<h2>Settings</h2>
 
 			<div class="create">
 				<!-- @todo: loop dis pls -->
@@ -155,10 +173,11 @@
 		</section>
 
 
+
 		<!-- Result -->
 		<section class="panel">
 			<h2>Result</h2>
-			<div class="result" data-result>
+			<div class="result" id="result">
 				<div class="ibox rarity{{ tier }} rarity{{ tier }}dark rounded" :class="getBgClasses()" :style="getWidthInlineStyle()">
 					<div class="ibox__top">
 						<div class="ibox__icon rounded" v-if="showImg">
@@ -175,10 +194,29 @@
 						<p v-html="getStatsText()"></p>
 					</div>
 				</div>
-
 			</div>
+
+			<br>
+
+			<button class="btn btn--submit" v-on:click="renderCanvas()">Render Image</button>
+
+			<br>
+
+			<div class="result" id="result-temp">
+			</div>
+
+			<br>
+
+			<canvas id="canvas" width="300" height="150">
+			</canvas>
+
+			<br>
+
+			<p class="tip">Right-click > Save image as...</p>
 		</section>
+
 	</main>
+
 
 	<footer>
 		<div class="tips">

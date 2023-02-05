@@ -1,4 +1,4 @@
-# Brotato-Item-Creator-WebApp
+# Brotato - Item Creator WebApp
 
 Create an item to share your ideas on Discord.
 

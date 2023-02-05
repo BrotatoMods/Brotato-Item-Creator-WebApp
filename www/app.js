@@ -63,7 +63,6 @@ createApp({
 			var sign = '';
 			var text1 = '';
 			var text2 = '';
-			console.log(type);
 
 			switch( type )
 			{
@@ -96,6 +95,58 @@ createApp({
 		},
 		clearStats() {
 			this.statsText = '';
+		},
+
+		renderCanvas() {
+			const canvas = document.getElementById('canvas');
+			const context = canvas.getContext('2d');
+			const result = document.getElementById('result');
+			const ibox = result.querySelector('.ibox');
+
+			// Update canvas dimensions, based on .ibox
+			canvas.setAttribute( 'width', ibox.offsetWidth );
+			canvas.setAttribute( 'height', ibox.offsetHeight );
+
+			const resultDupe = result.cloneNode(true);
+
+			// console.log({result});
+			// console.log(result.innerHTML);
+			// console.log({resultDupe});
+			// console.log(resultDupe.innerHTML);
+
+			const resultTemp = document.getElementById('result-temp');
+
+			// Using `computedStyleToInlineStyle` only seems to work if the
+			// element is part of the DOM, ie. visible on the page
+			resultTemp.appendChild(resultDupe);
+
+			// Apply inline styles
+			// We need to do this because the DOM -> Canvas conversion
+			//   only uses the stuff within the element itself, so it can't
+			//   apply styles via the stylesheet, because it was declared
+			//   outside of the element
+			computedStyleToInlineStyle(resultDupe, {
+				recursive: true,
+			});
+
+			// Render Canvas
+			// const resultHtml = result.innerHTML;
+			const resultHtml = resultDupe.innerHTML;
+
+
+			// We don't need the temp element any more, we only needed its HTML
+			// (with all the inline stuff)
+			resultTemp.removeChild(resultDupe);
+
+
+
+			// console.log(resultHtml);
+
+			rasterizeHTML.drawHTML(resultHtml).then(function (renderResult) {
+				console.log({renderResult});
+				// The -8px accounts for browsers adding margins by default to body, ie: `body {margin: 8px}`
+				context.drawImage(renderResult.image, -8, -8);
+			});
 		},
 	}
 }).mount('#app')
