@@ -23,6 +23,11 @@ createApp({
 				{ num: 3, text: "Tier 3" },
 				{ num: 4, text: "Tier 4" },
 			],
+
+			// Misc:
+			widthMin: 200,
+			widthDefault: 300,
+			widthMax: 400,
 		}
 	},
 	methods: {
@@ -56,7 +61,27 @@ createApp({
 		},
 		setWidth(width) {
 			this.width = width;
+			this.fixWidthInput();
 		},
+		fixWidthInput() {
+			if (this.width > this.widthMax)
+			{
+				this.width = this.widthMax;
+			}
+
+			if (this.width < this.widthMin)
+			{
+				this.width = this.widthMin;
+			}
+		},
+		setTier(num) {
+			this.tier = num;
+		},
+
+
+		// Stats
+		// ============================================================================
+
 		addStatLine(type = '') {
 			var lb   = ( !this.statsText.length ) ? '' : '\n';
 			var el   = '';
@@ -96,6 +121,11 @@ createApp({
 		clearStats() {
 			this.statsText = '';
 		},
+
+
+
+		// Canvas + Saving
+		// ============================================================================
 
 		renderCanvas() {
 			const canvas = document.getElementById('canvas');

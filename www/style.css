@@ -85,12 +85,10 @@ main {
 	justify-content: center;
 	justify-content: space-between;
 	align-items: flex-start;
-	/* max-width: 1600px; */
-	/* width: 100%; */
 
     /* Tests for small resolution */
-	max-width: 1263px;
-    border: 1px dashed rgba(255, 255, 0, 0.2);
+	/* max-width: 1263px; */
+    /* border: 1px dashed rgba(255, 255, 0, 0.2); */
 }
 
 .panel {
@@ -118,6 +116,11 @@ main {
 .ibox__icon {
 	width: 60px;
 	height: 60px;
+}
+
+.ibox {
+	min-width: 200px;
+	max-width: 400px;
 }
 
 
@@ -200,7 +203,7 @@ main {
 }
 
 .create__field--buttons {
-	padding: 0 0 10px 6px;
+	padding: 0 0 10px 0px;
 }
 
 .create__field--buttons button {
@@ -224,17 +227,36 @@ main {
 /* ===========================================================================*/
 
 .btn {
-	background: rgba(255,255,255, 0.1);
 	border: 1px solid black;
 	padding: 5px 10px;
-	/* border-radius: 3px; */
+	border-radius: 4px;
 	cursor: pointer;
 	color: rgba(255,255,255, 0.6);
 }
 
-.btn:hover {
+.btn:not(.btn--has-bg) {
+	background: rgba(255,255,255, 0.1);
+}
+
+.btn:not(.btn--has-bg):hover {
 	background: rgba(255,255,255, 0.3);
 }
+
+.btn--main {
+	padding: 10px;
+	font-weight: 600;
+}
+
+.btn--has-bg:hover,
+.btn--has-bg.btn--active {
+	opacity: 0.6;
+}
+
+.btn--has-bg:hover {
+	opacity: 0.4;
+}
+
+
 
 .btn--red {
 	background-color: #be2929;

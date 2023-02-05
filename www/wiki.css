@@ -13,6 +13,7 @@ https://brotato.wiki.spellsandguns.com/MediaWiki:Common.js
 */
 
 :root {
+	--rarity-0: 0, 0, 0;
 	--rarity-1: 200,200,200;
 	--rarity-2: 74,155,209;
 	--rarity-3: 173,90,255;
@@ -47,27 +48,33 @@ https://brotato.wiki.spellsandguns.com/MediaWiki:Common.js
 }
 
 .rarity0 {
-	border: 1px solid rgb(var(--rarity-1),.5)
+	border: 1px solid rgb(var(--rarity-1),.5);
+	background: rgba(var(--rarity-0),.5);
 }
 .rarity1 {
 	border: 1px solid rgb(var(--rarity-1),.5);
-	background: linear-gradient(360deg,rgb(var(--rarity-1),.5),rgba(0,0,0,0.5))
+	/* background: linear-gradient(360deg,rgb(var(--rarity-1),.5),rgba(0,0,0,0.5)) */
+	background: rgba(var(--rarity-1),.5);
 }
 .rarity2 {
 	border: 1px solid rgb(var(--rarity-2),.5);
-	background: linear-gradient(360deg,rgb(var(--rarity-2),.5),rgba(0,0,0,0.5))
+	/* background: linear-gradient(360deg,rgb(var(--rarity-2),.5),rgba(0,0,0,0.5)) */
+	background: rgba(var(--rarity-2),.5);
 }
 .rarity3 {
 	border: 1px solid rgb(var(--rarity-3),.5);
-	background: linear-gradient(360deg,rgb(var(--rarity-3),.5),rgba(0,0,0,0.5))
+	/* background: linear-gradient(360deg,rgb(var(--rarity-3),.5),rgba(0,0,0,0.5)) */
+	background: rgba(var(--rarity-3),.5);
 }
 .rarity4 {
 	border: 1px solid rgb(var(--rarity-4),.5);
-	background: linear-gradient(360deg,rgb(var(--rarity-4),.5),rgba(0,0,0,0.5))
+	/* background: linear-gradient(360deg,rgb(var(--rarity-4),.5),rgba(0,0,0,0.5)) */
+	background: rgba(var(--rarity-4),.5);
 }
 .rarity5 {
 	border: 1px solid rgb(var(--rarity-5),.5);
-	background: linear-gradient(360deg,rgb(var(--rarity-5),.5),rgba(0,0,0,0.5))
+	/* background: linear-gradient(360deg,rgb(var(--rarity-5),.5),rgba(0,0,0,0.5)) */
+	background: rgba(var(--rarity-5),.5);
 }
 
 .ibox {

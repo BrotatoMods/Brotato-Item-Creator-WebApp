@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Brotato Item Creator</title>
 	<link rel="stylesheet" href="/reset.css">
-	<link rel="stylesheet" href="/wiki.css">
 	<link rel="stylesheet" href="/style.css">
+	<link rel="stylesheet" href="/wiki.css">
 
 	<!-- Favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
@@ -57,8 +57,9 @@
 			<div class="create">
 				<!-- @todo: use loop instead? -->
 				<div class="create__row">
-					<label class="create__label-wrap">
+					<div class="create__label-wrap">
 						<div class="create__label-text">Tier</div>
+						<!--
 						<div class="create__field create__field--tier">
 							<select v-model="tier">
 								<option v-for="tierData in tiers" :value="tierData.num">
@@ -66,7 +67,15 @@
 								</option>
 							</select>
 						</div>
-					</label>
+						-->
+						<div class="create__field create__field--buttons">
+							<button class="btn btn--main btn--has-bg rarity0" type="button" v-on:click="setTier(0)" :class="tier === 0 ? 'btn--active' : ''">0</button>
+							<button class="btn btn--main btn--has-bg rarity1" type="button" v-on:click="setTier(1)" :class="tier === 1 ? 'btn--active' : ''">1</button>
+							<button class="btn btn--main btn--has-bg rarity2" type="button" v-on:click="setTier(2)" :class="tier === 2 ? 'btn--active' : ''">2</button>
+							<button class="btn btn--main btn--has-bg rarity3" type="button" v-on:click="setTier(3)" :class="tier === 3 ? 'btn--active' : ''">3</button>
+							<button class="btn btn--main btn--has-bg rarity4" type="button" v-on:click="setTier(4)" :class="tier === 4 ? 'btn--active' : ''">4</button>
+						</div>
+					</div>
 				</div>
 
 				<div class="create__row">
@@ -104,7 +113,7 @@
 					<label class="create__label-wrap">
 						<div class="create__label-text">Width</div>
 						<div class="create__field create__field--width">
-							<input v-model="width" type="number" step="10" min="200" max="400">
+							<input v-model="width" type="number" step="10" min="200" max="400" v-on:change="fixWidthInput()">
 						</div>
 					</label>
 				</div>
