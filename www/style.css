@@ -1,8 +1,13 @@
 /* Global */
 
 :root {
-	--pastelgreen: 102, 185, 102;
-	--pastelred: 191, 89, 89;
+	--pastel-positive: rgb(102, 185, 102);
+	--pastel-negative: rgb(191, 89, 89);
+	--stat-positive: rgb(0, 255, 0);
+	--stat-negative: rgb(244, 0, 0);
+	--app-negative-base: #791a1a;
+	--app-negative-active: #693c3c;
+	--cream: rgb(234, 226, 176);
 	color-scheme: dark;
 }
 
@@ -133,7 +138,7 @@ main {
 }
 
 .ibox__type {
-	color: rgb(234, 226, 176);
+	color: var(--cream);
 }
 
 .ibox__icon {
@@ -353,7 +358,7 @@ main {
 }
 
 .saved-item__delete {
-	background-color: #791a1a;
+	background-color: var(--app-negative-base);;
 	border-radius: 3px;
 	height: 20px;
 	margin-left: 10px;
@@ -362,10 +367,9 @@ main {
 }
 
 .saved-item__delete:hover {
-	background-color: #693c3c;
+	background-color: var(--app-negative-active);;
 	cursor: pointer;
 }
-
 
 
 /* Misc */
@@ -403,17 +407,17 @@ footer {
 }
 
 .text-positive {
-	color: rgb(0, 255, 0);
-	/* color: rgb(var(--pastelgreen)); */
+	color: var(--stat-positive);
+	/* color: var(--pastel-positive) */
 }
 
 .text-negative {
-	color: rgb(244, 0, 0);
-	/* color: rgb(var(--pastelred)); */
+	color: var(--stat-negative);
+	/* color: var(--pastel-negative); */
 }
 
 .text-cream {
-	color: rgb(234, 226, 176);
+	color: var(--cream);
 }
 
 .mt-5 {
