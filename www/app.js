@@ -35,7 +35,7 @@ createApp({
 				'Page' : 'info.png',
 				'Question ': 'questionmark.png',
 				'Character': 'character-base.png',
-				'Character ?': 'character-base-questionmark.png',
+				'Character?': 'character-base-questionmark.png',
 				'Artifact': 'sg/artifact.png',
 				'Axe': 'sg/axe.png',
 				'Ball': 'sg/ball.png',
@@ -137,7 +137,7 @@ createApp({
 					break;
 			}
 
-			this.statsText += `${lb}` + `<${el}>${sign}${text1}</${el}> ${text2}`;
+			this.statsText += `${lb}` + `[${el}]${sign}${text1}[/${el}] ${text2}`;
 		},
 		getStatsText() {
 			return this.applyTextColors(this.statsText);
