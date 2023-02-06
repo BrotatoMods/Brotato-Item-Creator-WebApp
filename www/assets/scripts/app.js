@@ -109,7 +109,7 @@ createApp({
 		applyTextIcons(str = '') {
 			// Shows stats as icon images, eg [i]armor[/i]
 			for (const [key, value] of Object.entries(this.statIcons)) {
-				str = str.replaceAll( `[i]${key}[/i]`, `<span class="staticon"><img src="img/stats/${value}"></span>` );
+				str = str.replaceAll( `[i]${key}[/i]`, `<span class="staticon"><img src="assets/img/stats/${value}"></span>` );
 			}
 			return str;
 		},
@@ -143,7 +143,7 @@ createApp({
 			this.tier = num;
 		},
 		getIconImgSrc(key) {
-			return 'img/icons/' + this.icons[key];
+			return 'assets/img/icons/' + this.icons[key];
 		},
 		setIcon(key) {
 			this.icon = key;

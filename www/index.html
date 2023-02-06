@@ -5,9 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Brotato Item Creator</title>
-	<link rel="stylesheet" href="assets/reset.css?ver=1.3.1">
-	<link rel="stylesheet" href="assets/style.css?ver=1.3.1">
-	<link rel="stylesheet" href="assets/wiki.css?ver=1.3.1">
+	<link rel="stylesheet" href="assets/styles/dist/app.css?ver=1.3.1">
 
 	<!-- Favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -59,15 +57,6 @@
 				<div class="create__row">
 					<div class="create__label-wrap">
 						<div class="create__label-text">Tier</div>
-						<!--
-						<div class="create__field create__field--tier">
-							<select v-model="tier">
-								<option v-for="tierData in tiers" :value="tierData.num">
-									{{ tierData.text }}
-								</option>
-							</select>
-						</div>
-						-->
 						<div class="create__field create__field--buttons">
 							<!-- @todo: loop -->
 							<button class="btn btn--main btn--has-bg rarity0" type="button" v-on:click="setTier(0)" :class="tier === 0 ? 'btn--active' : ''">0</button>
@@ -182,7 +171,7 @@
 
 				<div class="create__field create__field--buttons create__field--icon-buttons">
 					<button type="button" class="btn btn--staticon" v-on:click="addStatIcon(key)" v-for="value, key in statIcons">
-						<img :src="'img/stats/' + value" :title="key">
+						<img :src="'assets/img/stats/' + value" :title="key">
 					</button>
 				</div>
 

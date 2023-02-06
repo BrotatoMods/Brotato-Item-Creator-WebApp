@@ -12,69 +12,62 @@ https://brotato.wiki.spellsandguns.com/MediaWiki:Common.css
 https://brotato.wiki.spellsandguns.com/MediaWiki:Common.js
 */
 
-:root {
-	--rarity-0: 0, 0, 0;
-	--rarity-1: 200,200,200;
-	--rarity-2: 74,155,209;
-	--rarity-3: 173,90,255;
-	--rarity-4: 255,59,59;
-	--rarity-5: 247,162,45;
-	--rarity-0-dark: 0, 0, 0;
-	--rarity-1-dark: 32, 32, 32;
-	--rarity-2-dark: 15, 32, 40;
-	--rarity-3-dark: 16, 10, 27;
-	--rarity-4-dark: 36, 9, 9;
-	--rarity-5-dark: 26, 24, 8;
-}
+$rarity-0: rgb(0, 0, 0);
+$rarity-1: rgb(200, 200, 200);
+$rarity-2: rgb(74, 155, 209);
+$rarity-3: rgb(173, 90, 255);
+$rarity-4: rgb(255, 59, 59);
+$rarity-5: rgb(247, 162, 45);
+$rarity-0-dark: rgb(0, 0, 0);
+$rarity-1-dark: rgb(32, 32, 32);
+$rarity-2-dark: rgb(15, 32, 40);
+$rarity-3-dark: rgb(16, 10, 27);
+$rarity-4-dark: rgb(36, 9, 9);
+$rarity-5-dark: rgb(26, 24, 8);
 
 .rounded {
 	border-radius: 4px;
 }
 
 .colorrarity1 {
-	color: rgb(var(--rarity-1))
+	color: $rarity-1;
 }
 .colorrarity2 {
-	color: rgb(var(--rarity-2))
+	color: $rarity-2;
 }
 .colorrarity3 {
-	color: rgb(var(--rarity-3))
+	color: $rarity-3;
 }
 .colorrarity4 {
-	color: rgb(var(--rarity-4))
+	color: $rarity-4;
 }
 .colorrarity5 {
-	color: rgb(var(--rarity-5))
+	color: $rarity-5;
 }
 
 .rarity0 {
-	border: 1px solid rgb(var(--rarity-1),.5);
-	background: rgba(var(--rarity-0),.5);
+	border: 1px solid rgba($rarity-1,.5);
+	background: rgba($rarity-0,.5);
 }
 .rarity1 {
-	border: 1px solid rgb(var(--rarity-1),.5);
-	/* background: linear-gradient(360deg,rgb(var(--rarity-1),.5),rgba(0,0,0,0.5)) */
-	background: rgba(var(--rarity-1),.5);
+	border: 1px solid rgba($rarity-1,.5);
+	background: rgba($rarity-1,.5);
 }
 .rarity2 {
-	border: 1px solid rgb(var(--rarity-2),.5);
-	/* background: linear-gradient(360deg,rgb(var(--rarity-2),.5),rgba(0,0,0,0.5)) */
-	background: rgba(var(--rarity-2),.5);
+	border: 1px solid rgba($rarity-2,.5);
+	background: rgba($rarity-2,.5);
 }
 .rarity3 {
-	border: 1px solid rgb(var(--rarity-3),.5);
-	/* background: linear-gradient(360deg,rgb(var(--rarity-3),.5),rgba(0,0,0,0.5)) */
-	background: rgba(var(--rarity-3),.5);
+	border: 1px solid rgba($rarity-3,.5);
+	background: rgba($rarity-3,.5);
 }
 .rarity4 {
-	border: 1px solid rgb(var(--rarity-4),.5);
-	/* background: linear-gradient(360deg,rgb(var(--rarity-4),.5),rgba(0,0,0,0.5)) */
-	background: rgba(var(--rarity-4),.5);
+	border: 1px solid rgba($rarity-4,.5);
+	background: rgba($rarity-4,.5);
 }
 .rarity5 {
-	border: 1px solid rgb(var(--rarity-5),.5);
-	/* background: linear-gradient(360deg,rgb(var(--rarity-5),.5),rgba(0,0,0,0.5)) */
-	background: rgba(var(--rarity-5),.5);
+	border: 1px solid rgba($rarity-5,.5);
+	background: rgba($rarity-5,.5);
 }
 
 .ibox {
@@ -139,26 +132,20 @@ https://brotato.wiki.spellsandguns.com/MediaWiki:Common.js
 }
 
 .rarity0dark {
-	background: rgb(var(--rarity-0-dark));
+	background: $rarity-0-dark;
 }
 .rarity1dark {
-	background: rgb(var(--rarity-1-dark));
+	background: $rarity-1-dark;
 }
 .rarity2dark {
-	background: rgb(var(--rarity-2-dark));
+	background: $rarity-2-dark;
 }
 .rarity3dark {
-	background: rgb(var(--rarity-3-dark));
+	background: $rarity-3-dark;
 }
 .rarity4dark {
-	background: rgb(var(--rarity-4-dark));
+	background: $rarity-4-dark;
 }
 .rarity5dark {
-	background: rgb(var(--rarity-5-dark));
-}
-.danger4dark {
-	background: rgb(var(--danger-4-dark));
-}
-.danger5dark {
-	background: rgb(var(--danger-5-dark));
+	background: $rarity-5-dark;
 }

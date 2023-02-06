@@ -1,0 +1,1 @@
+These local vendor scripts are not used in this project, but are kept here to support offline use if required.

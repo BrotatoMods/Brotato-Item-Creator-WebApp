@@ -76,6 +76,10 @@ const bsyncOptions = {
 	// Proxy an EXISTING vhost
 	// proxy: 'https://brotato-items.localdev',
 
+	server: {
+		baseDir: "./"
+	},
+
 	// Don't show any notifications in the browser.
 	notify: false, // default: true
 
