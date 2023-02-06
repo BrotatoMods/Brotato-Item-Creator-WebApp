@@ -7,11 +7,8 @@ const browsersync  = require("browser-sync").create();
 const cssnano      = require("cssnano");
 const del          = require("del");
 const gulp         = require("gulp");
-const imagemin     = require("gulp-imagemin");
-const newer        = require("gulp-newer");
 const plumber      = require("gulp-plumber");
 const postcss      = require("gulp-postcss");
-const rename       = require("gulp-rename");
 const sass         = require("gulp-sass");
 const sourcemaps   = require("gulp-sourcemaps");
 
