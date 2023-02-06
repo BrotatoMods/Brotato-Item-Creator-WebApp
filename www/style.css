@@ -391,7 +391,7 @@ main {
 }
 
 .saved-item__delete {
-	background-color: var(--app-negative-base);;
+	background-color: var(--app-negative-base);
 	border-radius: 3px;
 	height: 20px;
 	margin-left: 10px;
@@ -400,7 +400,7 @@ main {
 }
 
 .saved-item__delete:hover {
-	background-color: var(--app-negative-active);;
+	background-color: var(--app-negative-active);
 	cursor: pointer;
 }
 
