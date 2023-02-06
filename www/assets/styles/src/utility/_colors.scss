@@ -1,0 +1,70 @@
+
+// Color Classes
+// ============================================================================
+
+
+
+.colorrarity0 {
+	color: $white;
+}
+.colorrarity1 {
+	color: $rarity-1;
+}
+.colorrarity2 {
+	color: $rarity-2;
+}
+.colorrarity3 {
+	color: $rarity-3;
+}
+.colorrarity4 {
+	color: $rarity-4;
+}
+.colorrarity5 {
+	color: $rarity-5;
+}
+
+.rarity0 {
+	border: 1px solid rgba($rarity-1,.5);
+	background: rgba($rarity-0,.5);
+}
+.rarity1 {
+	border: 1px solid rgba($rarity-1,.5);
+	background: rgba($rarity-1,.5);
+}
+.rarity2 {
+	border: 1px solid rgba($rarity-2,.5);
+	background: rgba($rarity-2,.5);
+}
+.rarity3 {
+	border: 1px solid rgba($rarity-3,.5);
+	background: rgba($rarity-3,.5);
+}
+.rarity4 {
+	border: 1px solid rgba($rarity-4,.5);
+	background: rgba($rarity-4,.5);
+}
+.rarity5 {
+	border: 1px solid rgba($rarity-5,.5);
+	background: rgba($rarity-5,.5);
+}
+
+
+
+.rarity0dark {
+	background: $rarity-0-dark;
+}
+.rarity1dark {
+	background: $rarity-1-dark;
+}
+.rarity2dark {
+	background: $rarity-2-dark;
+}
+.rarity3dark {
+	background: $rarity-3-dark;
+}
+.rarity4dark {
+	background: $rarity-4-dark;
+}
+.rarity5dark {
+	background: $rarity-5-dark;
+}

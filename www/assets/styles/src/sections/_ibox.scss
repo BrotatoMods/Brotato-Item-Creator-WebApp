@@ -1,0 +1,76 @@
+$ibox-name-size: 1.1em;
+$ibox-type-size: 1.1em;
+$ibox-text-size: 1em;
+
+// Item Box
+// ============================================================================
+
+// Mostly via the wiki, where I built templates that use the .ibox class
+
+// https://brotato.wiki.spellsandguns.com/Template:StatsCard
+// https://brotato.wiki.spellsandguns.com/Template:StatsCardWeapon
+// https://brotato.wiki.spellsandguns.com/Template:StatsCardWeaponTabs
+// https://brotato.wiki.spellsandguns.com/MediaWiki:Common.css
+// https://brotato.wiki.spellsandguns.com/MediaWiki:Common.js
+
+.ibox {
+	color: $white;
+	font-size: 15px;
+	max-width: 400px;
+	min-width: 200px;
+	opacity: 1;
+	padding: 10px;
+	transition: 0.1s;
+	width: 300px;
+
+	&__top {
+		display: flex;
+		margin-bottom: 10px;
+	}
+
+	&__icon {
+		background-color: rgba($white, 0.1);
+		flex-shrink: 0;
+		height: 60px;
+		margin-right: 10px;
+		width: 60px;
+
+		img {
+			height: 60px;
+			opacity: 0.2;
+			width: 60px;
+		}
+	}
+
+	&__name {
+		font-size: $ibox-name-size;
+		font-weight: bold;
+		line-height: 1.2;
+		word-break: break-word;
+	}
+
+	&__top-right {
+		width: 100%;
+	}
+
+	&__type {
+		color: $cream;
+		font-size: $ibox-name-size;
+	}
+
+	&__stats {
+		font-size: $ibox-text-size;
+		line-height: 1.5;
+		white-space: pre-wrap;
+	}
+}
+
+.staticon {
+	display: inline-block;
+
+	img {
+		height: auto;
+		vertical-align: middle;
+		width: 20px;
+	}
+}

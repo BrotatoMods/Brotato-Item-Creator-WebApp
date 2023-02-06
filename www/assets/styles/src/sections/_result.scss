@@ -1,0 +1,14 @@
+.result {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+	min-width: 425px;
+}
+
+.render .btn {
+	flex-grow: 0;
+}
+
+#canvas {
+	border: 1px dashed rgb(52, 52, 52);
+}

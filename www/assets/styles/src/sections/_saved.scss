@@ -1,0 +1,48 @@
+/**
+ * Saved Items
+ */
+
+.saved-items {
+	width: 200px;
+}
+
+.saved-item {
+	display: flex;
+	font-size: 0.9rem;
+	justify-content: space-between;
+	line-height: 1.5;
+	margin-bottom: 5px;
+
+	&__main {
+		width: 90%;
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.1);
+			cursor: pointer;
+		}
+	}
+
+	&__number {
+		color: rgba(255, 255, 255, 0.1);
+		margin-right: 5px;
+	}
+
+	&__name {
+		color: $white;
+		word-break: break-word;
+	}
+
+	&__delete {
+		background-color: $app-negative-base;
+		border-radius: 3px;
+		height: 20px;
+		margin-left: 10px;
+		text-align: center;
+		width: 10%;
+
+		&:hover {
+			background-color: $app-negative-active;
+			cursor: pointer;
+		}
+	}
+}

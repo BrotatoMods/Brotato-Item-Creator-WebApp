@@ -1,0 +1,36 @@
+/**
+ * Structure
+ */
+
+main {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.panels {
+	align-items: center;
+	align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	justify-content: space-between;
+
+	// Tests for small resolution (ie. my TV)
+	//max-width: 1263px;
+	//border: 1px dashed rgba(255, 255, 0, 0.2);
+}
+
+.panel {
+	background: #151515;
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	margin: 0 10px;
+	min-height: 400px;
+	padding: 15px;
+
+	&--stats {
+		width: 550px;
+	}
+}

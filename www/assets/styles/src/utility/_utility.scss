@@ -1,0 +1,42 @@
+/**
+ * Utility
+ */
+
+.text-upper {
+	text-transform: uppercase;
+}
+
+.text-positive {
+	color: $stat-positive;
+	// color: $pastel-positive;
+}
+
+.text-negative {
+	color: $stat-negative;
+	// color: $pastel-negative;
+}
+
+.text-cream {
+	color: $cream;
+}
+
+.mt-5 {
+	margin-top: 5px;
+}
+
+.flex-center {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+}
+
+.rounded {
+	border-radius: 4px;
+}
+
+.tip {
+	font-size: 0.7rem;
+}
