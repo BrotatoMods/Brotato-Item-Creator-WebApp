@@ -7,15 +7,17 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"autoprefixer": "^9.4.10",
-		"browser-sync": "^2.26.3",
+		"autoprefixer": "^10.4.13",
+		"browser-sync": "^2.27.11",
 		"cssnano": "^5.1.14",
-		"del": "^4.0.0",
-		"gulp": "^4.0.0",
+		"del": "^4.1.1",
+		"gulp": "^4.0.2",
 		"gulp-plumber": "^1.2.1",
-		"gulp-postcss": "^8.0.0",
+		"gulp-postcss": "^9.0.1",
 		"gulp-sass": "^5.1.0",
-		"gulp-sourcemaps": "^2.6.5"
+		"gulp-sourcemaps": "^3.0.0",
+		"node-sass": "^8.0.0",
+		"postcss": "^8.4.21"
 	},
 	"scripts": {
 		"watch": "gulp watch",

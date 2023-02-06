@@ -9,7 +9,8 @@ const del          = require("del");
 const gulp         = require("gulp");
 const plumber      = require("gulp-plumber");
 const postcss      = require("gulp-postcss");
-const sass         = require("gulp-sass");
+// const sass         = require("gulp-sass");
+const sass         = require('gulp-sass')(require('node-sass'));
 const sourcemaps   = require("gulp-sourcemaps");
 
 
@@ -120,6 +121,12 @@ function watch()
 const build = gulp.series(
     clean,
     gulp.parallel( styles ),
+);
+
+// Build Assets and start watching files
+const serve = gulp.series(
+    clean,
+    gulp.parallel( styles ),
     watch
 );
 
@@ -127,6 +134,7 @@ const build = gulp.series(
 exports.clean = clean;
 exports.styles = styles;
 exports.watch = watch;
+exports.serve = serve;
 exports.build = build;
 
 // Default Task
