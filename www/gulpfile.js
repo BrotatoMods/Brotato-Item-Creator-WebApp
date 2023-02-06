@@ -41,7 +41,7 @@ function clean()
 function styles()
 {
     const plugins = [
-        autoprefixer({ browsers: ["last 2 versions"] }),
+        autoprefixer(),
         cssnano()
     ];
 

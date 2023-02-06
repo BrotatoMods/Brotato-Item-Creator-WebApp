@@ -6,6 +6,9 @@
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
+	"browserslist": [
+		"last 2 versions"
+	],
 	"devDependencies": {
 		"autoprefixer": "^10.4.13",
 		"browser-sync": "^2.27.11",
