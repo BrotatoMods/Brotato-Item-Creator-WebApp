@@ -53,7 +53,7 @@ strong {
 
 code {
 	background-color: rgba(0, 0, 0, 0.8);
-	color: rgba(255,255,255,0.8);
+	color: rgba(255, 255, 255, 0.8);
 	font-family: consolas;
 	padding: 1px;
 }
@@ -341,12 +341,12 @@ main {
 }
 
 .icon-btn:hover {
-	background: rgba(0,0,0,0.8);
+	background: rgba(0, 0, 0, 0.8);
 	border-radius: 3px;
 }
 
 .icon-btn--active {
-	background: rgba(0,0,0,0.8);
+	background: rgba(0, 0, 0, 0.8);
 	border-radius: 3px;
 }
 
