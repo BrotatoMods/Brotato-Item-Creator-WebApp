@@ -112,6 +112,12 @@
 										</div>
 										<div class="ibox__type">
 											<input v-model="type" type="text">
+
+											<div class="ibox__type-btns">
+												<button class="btn btn--default" type="button" v-on:click="setType('Item')">Item</button>
+												<button class="btn btn--default" type="button" v-on:click="setType('Character')">Character</button>
+												<button class="btn btn--default" type="button" v-on:click="setType('Limited')">Limited</button>
+											</div>
 										</div>
 									</div>
 								</div>

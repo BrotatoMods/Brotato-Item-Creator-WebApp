@@ -146,8 +146,21 @@ $ibox-text-size: 1em;
 	}
 
 	.ibox__type {
+		display: flex;
+
 		input {
 			font-size: ($ibox-type-size * 1.1);
+		}
+
+		.ibox__type-btns {
+			display: flex;
+			justify-content: flex-end;
+			margin-left: 5px;
+			width: 210px;
+
+			.btn {
+				margin-left: 5px;
+			}
 		}
 	}
 
