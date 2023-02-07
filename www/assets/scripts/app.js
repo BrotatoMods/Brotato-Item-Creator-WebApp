@@ -20,6 +20,9 @@ createApp({
 			widthDefault: 300,
 			widthMax: 400,
 
+			// GUI options
+			showSidebar: false,
+
 			// Icons
 			icons: {
 				'Page' : 'info.png',
@@ -35,6 +38,7 @@ createApp({
 				'Gun1': 'sg/gun1.png',
 				'Gun2': 'sg/gun2.png',
 				'Ring': 'sg/ring.png',
+				'Empty': 'empty.png',
 			},
 
 			// Default Text
@@ -84,11 +88,40 @@ createApp({
 				// 'percent_damage'  : 'percent_damage.png',
 				// 'ranged_damage'   : 'ranged_damage.png',
 			},
+
+			tiersData: {
+				0: { txt: 'C', tooltip: 'Character' },
+				1: { txt: '1', tooltip: 'Tier 1 (Common)' },
+				2: { txt: '2', tooltip: 'Tier 2 (Uncommon)' },
+				3: { txt: '3', tooltip: 'Tier 3 (Rare)' },
+				4: { txt: '4', tooltip: 'Tier 4 (Legendary)' },
+			},
+
+			helpNotes: [
+				{ txt: 'Positive', cls: 'text-positive--pastel', code: '[p]+10[/p]' },
+				{ txt: 'Negative', cls: 'text-negative--pastel', code: '[n]-10[/n]' },
+				{ txt: 'Stat',     cls: 'text-cream',            code: '[s]Damage:[/s]' },
+				{ txt: 'Icon',     cls: 'text-grey',             code: '[i]armor[/i]' },
+			],
+
+			// Debug stuff
+			renderSVG: '',
+			svgUrl: '#',
+
+
+			debugModeOn: false,
 		}
 	},
 	methods: {
 		getBgClasses() {
-			return `rarity${this.tier} rarity${this.tier}dark`
+			return [
+				// `rarity${this.tier}`,
+				// `rarity${this.tier}dark`,
+				'border-color-tier' + this.tier,
+				'bg-color-tier' + this.tier,
+				'color-tier' + this.tier,
+				'bg-dark-color-tier' + this.tier,
+			].concat();
 		},
 		getNameClass() {
 			return `colorrarity${this.tier}`
@@ -148,11 +181,53 @@ createApp({
 		setIcon(key) {
 			this.icon = key;
 		},
+		getImageUrl(type, key) { // @todo: unused
+			let url = '';
+			switch( type )
+			{
+				case 'icon':
+					url = `assets/img/icons/${this.icons[key]}`;
+					break;
+
+				case 'stat':
+					url = `assets/img/stats/${key}`;
+					break;
+			}
+			return url;
+		},
+
+		// Click the icon to cycle through them
+		cycleIcons() {
+			// Find index of current icon, and increment it (or loop back to 0)
+			const iconsArr = Object.entries(this.icons);
+			let newIndx = 0;
+
+			console.log(iconsArr);
+
+			const curr_indx = iconsArr.findIndex( ( item ) => ( item[0] === this.icon ) );
+
+			if ( curr_indx === ( iconsArr.length - 1 ) ) {
+				newIndx = 0;
+			} else {
+				newIndx = curr_indx + 1;
+			}
+
+			const newIconID = iconsArr[newIndx][0];
+
+			this.icon = newIconID;
+		},
+
+
+
+
 
 
 		// Saving + Loading
 		// ============================================================================
 
+		toggleSaveSidebar() {
+			this.showSidebar = !this.showSidebar;
+		},
 		getItemStats() {
 			return {
 				tier: this.tier,
@@ -262,7 +337,26 @@ createApp({
 		// Canvas (Image Saving)
 		// ============================================================================
 
-		renderCanvas() {
+		renderCanvas()
+		{
+			/**
+			 * ⚡ Debug opts
+			 */
+
+			// Set to `false` to show the HMTL that will be used in the canvas render.
+			// Very helpful for identifying obvious issues
+			const removeChild = true; // default: true
+
+			// Set to `true` to log the canvas render stuff to the console.
+			const logMarkup = false; // default: false
+
+			// Set to `true` to log the SVG contents of the canvas
+			const logResult = false; // default: false
+
+			const doDebugStuff = false;
+
+
+
 			const canvas = document.getElementById('canvas');
 			const context = canvas.getContext('2d');
 			const result = document.getElementById('result');
@@ -272,9 +366,14 @@ createApp({
 			canvas.setAttribute( 'width', ibox.offsetWidth );
 			canvas.setAttribute( 'height', ibox.offsetHeight );
 
-			// const resultDupe = result.cloneNode(true);
+			// const resultDupe = result.cloneNode(true); // use this if you want to load more stuff, eg. for testing (reduces performance)
 			const resultDupe = ibox.cloneNode(true);
 			const resultTemp = document.getElementById('result-temp');
+
+			// Cleanup: Remove anything in the temp element (this would only
+			// happen if the `removeChild` debug option is enabled, and therefore
+			// the child wasn't removed at the end of the last process)
+			resultTemp.innerHTML = '';
 
 			// Using `computedStyleToInlineStyle` only seems to work if the
 			// element is part of the DOM, ie. visible on the page
@@ -287,6 +386,7 @@ createApp({
 			//   outside of the element
 			computedStyleToInlineStyle(resultDupe, {
 				recursive: true,
+				// properties: undefined,
 				properties: [
 					'align-items', 'background', 'background-color', 'border', 'border-radius', 'box-sizing', 'color',
 					'color-scheme', 'cursor', 'display', 'flex-direction', 'flex-grow', 'flex-shrink', 'flex-wrap',
@@ -294,24 +394,164 @@ createApp({
 					'list-style', 'margin', 'margin-bottom', 'margin-left', 'margin-right', 'margin-top', 'max-height',
 					'max-width','min-height', 'min-width', 'opacity', 'padding', 'text-align', 'text-transform',
 					'transition', 'vertical-align', 'white-space', 'width', 'word-break',
+					// '@font-face', 'font-family', 'src', 'font-weight', 'font-style',
 				]
 			});
+
+			//@todo: temp
+			this.injectFontStyles(resultDupe);
 
 			// Render Canvas
 			const resultHtml = resultDupe.outerHTML;
 
-			// We don't need the temp element any more, we only needed its HTML
-			// (with all the inline stuff). Comment this out to preview how it should look
-			resultTemp.removeChild(resultDupe);
+			// We don't need the temp element any more, we only needed its HTML (with all the inline stuff).
+			// Comment this out to preview how it should look
+			if ( removeChild )
+			{
+				resultTemp.removeChild(resultDupe);
+			}
 
-			// Log the HTML markup that we'll add to the canvas
-			// console.log(resultHtml);
+			// DEBUG: Log the HTML markup that we'll add to the canvas
+			if ( logMarkup )
+			{
+				console.log(resultHtml);
+			}
 
-			rasterizeHTML.drawHTML(resultHtml).then(function (renderResult) {
-				// console.log({renderResult});
+			rasterizeHTML.drawHTML(resultHtml).then( (renderResult) => {
+				if ( logResult )
+				{
+					console.log({renderResult});
+				}
+
+				if ( doDebugStuff )
+				{
+					this.canvasDebugStuff(renderResult);
+				}
+
 				// The -8px accounts for browsers adding margins by default to body, ie: `body {margin: 8px}`
 				context.drawImage(renderResult.image, -8, -8);
 			});
 		},
+
+
+		injectFontStyles(resultDupe) {
+			//@todo: TEMP
+			// I have no idea why this isn't working. It *should* load straight from the stylesheet,
+			// as the font is local, but it's not doing that. And this doesnt' work either 🤷‍♂️😡
+			const inlineStyles = `
+				<style>
+					@font-face {
+						font-family: 'anybodymedium';
+						src: url('/assets/fonts/anybody/Anybody-Medium.woff2') format('woff2');
+						font-weight: normal;
+						font-style: normal;
+					}
+					.ibox {
+						content: "peem";
+					}
+				</style>
+			`;
+			const tempCssTestyfix = document.createElement('style'); //@todo: TEMP
+			tempCssTestyfix.innerHTML = inlineStyles //@todo: TEMP
+			resultDupe.appendChild(tempCssTestyfix); //@todo: TEMP
+		},
+
+
+		// Not intended for use in PRD
+		canvasDebugStuff(renderResult) {
+			const svgStr = renderResult.svg;
+
+			this.renderSVG = svgStr;
+
+			const dummyEl = document.createElement('svg');
+			dummyEl.innerHTML = svgStr;
+
+			const xmlStr = new XMLSerializer().serializeToString(dummyEl);
+			const encodedData = window.btoa(xmlStr);
+
+			this.svgUrl = 'data:image/svg+xml;base64,' + encodedData;
+
+			// console.log(this.svgUrl);
+		},
+
+
+
+
+		// Syntax Highlighting
+		// ============================================================================
+
+		syntaxHighlighter() {
+			//@todo: This needs fixing. It's functional, but it seems like the DOM is updated before this can take effect,
+			// so you have to click outside the textarea box to see it, then when you edit things inside it again, the syntax
+			// highlighting is lost
+			return;
+
+			const highlight = window.csHighlight;
+
+			highlight({
+				patterns: [
+					// Positive
+					{
+						name: 'text-positive--pastel',
+						// https://regex101.com/r/7NPRSQ/1
+						match: /^(\[p\][A-z0-9 !"£$%^&*()\/*^\-+\\|<>,.\/?;'#:@~{}`¬¦]+\[\/p\])/,
+					},
+					{
+						name: 'text-positive--pastel',
+						match: /^(\[p\])/,
+					},
+					{
+						name: 'text-positive--pastel',
+						match: /^(\[\/p\])/,
+					},
+
+					// Negative
+					{
+						name: 'text-negative--pastel',
+						// https://regex101.com/r/7NPRSQ/1
+						match: /^(\[n\][A-z0-9 !"£$%^&*()\/*^\-+\\|<>,.\/?;'#:@~{}`¬¦]+\[\/n\])/,
+					},
+					{
+						name: 'text-negative--pastel',
+						match: /^(\[n\])/,
+					},
+					{
+						name: 'text-negative--pastel',
+						match: /^(\[\/n\])/,
+					},
+
+					// Stat
+					{
+						name: 'text-cream',
+						// https://regex101.com/r/7NPRSQ/1
+						match: /^(\[s\][A-z0-9 !"£$%^&*()\/*^\-+\\|<>,.\/?;'#:@~{}`¬¦]+\[\/s\])/,
+					},
+					{
+						name: 'text-cream',
+						match: /^(\[s\])/,
+					},
+					{
+						name: 'text-cream',
+						match: /^(\[\/s\])/,
+					},
+
+					// Icon
+					{
+						name: 'text-grey',
+						// https://regex101.com/r/7NPRSQ/1
+						match: /^(\[i\][A-z0-9 !"£$%^&*()\/*^\-+\\|<>,.\/?;'#:@~{}`¬¦]+\[\/i\])/,
+					},
+					{
+						name: 'text-grey',
+						match: /^(\[i\])/,
+					},
+					{
+						name: 'text-grey',
+						match: /^(\[\/i\])/,
+					},
+				]
+			});
+		},
+
 	}
 }).mount('#app')

@@ -41,7 +41,7 @@ function clean()
 function styles()
 {
     const plugins = [
-        autoprefixer(),
+        // autoprefixer(),
         cssnano()
     ];
 
@@ -65,7 +65,7 @@ function styles()
 
         // Stream changes to bsync
         // https://github.com/BrowserSync/browser-sync/issues/955#issuecomment-218927650
-        .pipe(browsersync.stream( { match: '**/*.css' } ));
+        // .pipe(browsersync.stream( { match: '**/*.css' } ));
 }
 
 
@@ -114,7 +114,7 @@ function watch()
     // Hotfix for css changes not reloading
     // gulp.watch( paths.styles.src ).on( 'change', browsersync.reload() );
 
-    gulp.watch( paths.watchFiles ).on( 'change', browsersync.reload );
+    // gulp.watch( paths.watchFiles ).on( 'change', browsersync.reload );
 }
 
 

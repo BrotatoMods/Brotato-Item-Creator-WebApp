@@ -2,8 +2,22 @@
  * Saved Items
  */
 
+.save-sidebar {
+	// bottom: 0;
+	// position: absolute;
+	// right: 0;
+	// top: 51px;
+	// background-color: $panel-bg-dark;
+	// border-left: 1px solid lighten($panel-bg-dark, 15);
+	// padding: 10px;
+
+	// &__heading {
+	// 	display: none;
+	// }
+}
+
 .saved-items {
-	width: 200px;
+	// width: 200px;
 }
 
 .saved-item {
@@ -19,6 +33,16 @@
 		&:hover {
 			background: rgba(255, 255, 255, 0.1);
 			cursor: pointer;
+		}
+	}
+
+	&__img {
+		margin-right: 5px;
+
+		img {
+			height: auto;
+			width: 16px;
+			vertical-align: middle;
 		}
 	}
 

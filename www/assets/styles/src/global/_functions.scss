@@ -1,0 +1,12 @@
+
+// Moved to colors.scss, as it's the only time a func is used atm
+
+/*
+// name: eg. 'tier1'
+// key:  eg. 'base'
+@function get-color($name, $key) {
+	$map: map-get($colors-map, $name);
+	$val: map-get($map, $key);
+	@return $val;
+}
+*/

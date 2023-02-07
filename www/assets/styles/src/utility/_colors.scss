@@ -2,8 +2,6 @@
 // Color Classes
 // ============================================================================
 
-
-
 .colorrarity0 {
 	color: $white;
 }
@@ -49,7 +47,6 @@
 }
 
 
-
 .rarity0dark {
 	background: $rarity-0-dark;
 }
@@ -67,4 +64,73 @@
 }
 .rarity5dark {
 	background: $rarity-5-dark;
+}
+
+
+// Loopy!
+// ============================================================================
+
+// name: eg. 'tier1'
+// key:  eg. 'base'
+@function get-color($name, $key) {
+	$map: map-get($colors-map, $name);
+	$val: map-get($map, $key);
+	@return $val;
+}
+
+$colors-map: (
+	'tier0': (
+		'base': $rarity-0,
+		'dark': $rarity-0-dark,
+		'border': rgba($rarity-1, 0.5),
+		'background': rgba($rarity-0, 0.5),
+	),
+	'tier1': (
+		'base': $rarity-1,
+		'dark': $rarity-1-dark,
+		'border': rgba($rarity-1, 0.5),
+		'background': rgba($rarity-1, 0.5),
+	),
+	'tier2': (
+		'base': $rarity-2,
+		'dark': $rarity-2-dark,
+		'border': rgba($rarity-2, 0.5),
+		'background': rgba($rarity-2, 0.5),
+	),
+	'tier3': (
+		'base': $rarity-3,
+		'dark': $rarity-3-dark,
+		'border': rgba($rarity-3, 0.5),
+		'background': rgba($rarity-3, 0.5),
+	),
+	'tier4': (
+		'base': $rarity-4,
+		'dark': $rarity-4-dark,
+		'border': rgba($rarity-4, 0.5),
+		'background': rgba($rarity-4, 0.5),
+	),
+);
+
+// Example: .text-color-tier1
+// func is in global/_functions.scss
+@each $mcolor-key, $mcolor-map in $colors-map {
+	.text-color-#{$mcolor-key} {
+		// color: map-get($cmap, 'base');
+		color: get-color($mcolor-key, 'base');
+	}
+
+	.border-color-#{$mcolor-key} {
+		// border-color: map-get($cmap, 'border');
+		border-color: get-color($mcolor-key, 'border');
+	}
+
+	.bg-color-#{$mcolor-key} {
+		// background-color: map-get($cmap, 'background');
+		background-color: get-color($mcolor-key, 'background');
+	}
+
+	.bg-dark-color-#{$mcolor-key} {
+		// background-color: map-get($cmap, 'dark');
+		background-color: get-color($mcolor-key, 'dark');
+	}
 }

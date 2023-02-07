@@ -14,6 +14,7 @@ $ibox-text-size: 1em;
 // https://brotato.wiki.spellsandguns.com/MediaWiki:Common.js
 
 .ibox {
+	border-radius: 4px;
 	color: $white;
 	font-size: 15px;
 	max-width: 400px;
@@ -22,6 +23,17 @@ $ibox-text-size: 1em;
 	padding: 10px;
 	transition: 0.1s;
 	width: 300px;
+	border: 1px solid;
+
+	// Preview only
+	&--preview {
+		// This is disabled because the image render doesn't use the custom font
+		// I don't know how to fix this, tried a few things but no luck
+
+		// font-family: 'Anybody', Helvetica, sans-serif;
+		// font-family: $font-anybody, Helvetica, sans-serif;
+		// font-family: $font-anybody;
+	}
 
 	&__top {
 		display: flex;
@@ -43,14 +55,15 @@ $ibox-text-size: 1em;
 	}
 
 	&__name {
+		// font-weight: bold;
 		font-size: $ibox-name-size;
-		font-weight: bold;
 		line-height: 1.2;
 		word-break: break-word;
+		transition: 0.1s;
 	}
 
 	&__top-right {
-		width: 100%;
+		width: calc(100% - 70px);
 	}
 
 	&__type {

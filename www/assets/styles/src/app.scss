@@ -1,16 +1,21 @@
 
+@import 'global/functions';
+@import 'global/mixins';
 @import 'global/variables';
 @import 'global/reset';
+
+@import 'global/fonts';
 @import 'global/global';
 @import 'global/buttons';
 @import 'global/structure';
 
-@import 'utility/colors';
-@import 'utility/utility';
-
 @import 'sections/header';
-@import 'sections/create';
+@import 'sections/panels';
 @import 'sections/ibox';
+@import 'sections/editor';
 @import 'sections/result';
 @import 'sections/saved';
 @import 'sections/footer';
+
+@import 'utility/colors';
+@import 'utility/utility';

@@ -2,6 +2,10 @@
 $white: #fff;
 $black: #000;
 
+$panel-bg-main: #1C1C1C;
+// $panel-bg-main: #151515;
+$panel-bg-dark: #161616;
+
 $rarity-0: rgb(0, 0, 0);
 $rarity-1: rgb(200, 200, 200);
 $rarity-2: rgb(74, 155, 209);
@@ -20,6 +24,33 @@ $pastel-positive: rgb(102, 185, 102);
 $pastel-negative: rgb(191, 89, 89);
 $stat-positive: rgb(0, 255, 0);
 $stat-negative: rgb(244, 0, 0);
+
 $app-negative-base: #791a1a;
 $app-negative-active: #693c3c;
+$app-positive-base: #1f791a;
+$app-positive-active: #3c6943;
+
 $cream: rgb(234, 226, 176);
+
+
+// Breakpoints
+// ============================================================================
+
+// These have been carefully selected using the latest (2022) viewport stats.
+// Use with the mixins in assets/styles/src/global/_mixins.scss:
+// @include bp-above($bp) {}
+// @include bp-until($bp) {}
+// @include bp-between($bp-min, $bp-max) {}
+
+$bp-desktop:   1920px; // | Desktop     | ⭐⭐⭐⭐⭐| 1920 x 1080 |
+
+$bp-laptop-lg: 1536px; // | L Large     | ⭐⭐⭐🌑🌑| 1536 x 864 | (close to common size: 1440 x 900, which is Macbook Pro 15")
+$bp-laptop-md: 1366px; // | L Medium    | ⭐⭐⭐⭐🌑| 1366 x 768 |
+$bp-laptop-sm: 1280px; // | L Small     | ⭐🌑🌑🌑🌑| 1280 x 720 |
+
+$bp-tablet-ls: 1024px; // | T Landscape | ⭐⭐🌑🌑🌑| 1024 x 768 |
+$bp-tablet-po:  768px; // | T Portrait  | ⭐⭐⭐🌑🌑| 768 x 1024 |
+
+$bp-mobile-ls:  640px; // | M Landscape | 🌑🌑🌑🌑🌑| 640 x 360 |
+$bp-mobile-lg:  414px; // | M Large     | ⭐⭐⭐🌑🌑| 414 x 896 |
+$bp-mobile-sm:  360px; // | M Small     | ⭐⭐⭐⭐⭐| 360 x 640 |

@@ -4,13 +4,12 @@
 
 .btn {
 	border-radius: 4px;
-	border: 1px solid $black;
-	color: rgba(255, 255, 255, 0.6);
+	border: 1px solid rgba($black, 0.6);
+	color: rgba(255, 255, 255, 0.8);
 	cursor: pointer;
 	padding: 5px 10px;
 
-	// :not(.btn--has-bg)
-	&--default {
+	&--default-bg {
 		background: rgba(255, 255, 255, 0.1);
 
 		&:hover {
@@ -34,33 +33,83 @@
 	}
 
 	&--red {
-		background-color: $app-negative-base !important; // @todo: bad
+		background-color: $app-negative-base;
 		color: $white;
 
 		&:hover {
-			background-color: $app-negative-active !important; // @todo: bad
+			background-color: $app-negative-active;
 		}
 	}
 
 	&--staticon {
 		margin-bottom: 3px;
+		padding: 4px 5px;
 
 		img {
 			height: auto;
 			vertical-align: middle;
-			width: 20px;
+			width: 18px;
+		}
+	}
+
+	&--savetoggle {
+		background-color: rgba($black, 0.6);
+		color: $white;
+	}
+
+	&--submit {
+		background-color: $app-positive-base;
+		color: $white;
+
+		&:hover {
+			background-color: $app-positive-active;
 		}
 	}
 }
 
+
+// Tier Btns
+// ============================================================================
+
+.tierbtns {
+	// width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.btn--tier {
+	border-radius: 100%;
+	// padding: 3px;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 5px;
+	height: 30px;
+	width: 30px;
+
+	.btn__text {
+		font-size: 1rem;
+		line-height: 100%;
+		text-align: center;
+		position: relative;
+		top: 1px;
+	}
+}
+
+
+
 // Icon Buttons
+// ============================================================================
+
 // @todo: Merge into .btn
 
 .icon-btns {
 	display: flex;
 	flex-wrap: wrap;
 	max-width: 100%;
-	width: 250px;
+	// width: 250px;
+	justify-content: center;
 }
 
 .icon-btn {
@@ -80,6 +129,6 @@
 
 	& img {
 		display: block;
-		width: 32px;
+		width: 40px;
 	}
 }

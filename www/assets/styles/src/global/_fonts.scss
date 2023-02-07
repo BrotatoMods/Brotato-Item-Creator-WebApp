@@ -1,0 +1,17 @@
+
+// can't just use `./` because the app is in a subdir, with all of its own assets in that subdir too
+$font-base-path: 'assets/fonts/anybody/';
+$font-path: '../../../../' + $font-base-path;
+
+// The correct path to use, if we didn'#t have a funky setup (works with Browersync)
+// $font-base-ideal-path: '/assets/fonts/anybody/';
+
+@font-face {
+    font-family: 'anybodymedium';
+    src: url($font-path + 'Anybody-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+$font-anybody: 'anybodymedium';

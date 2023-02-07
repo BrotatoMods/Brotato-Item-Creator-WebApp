@@ -1,0 +1,55 @@
+/**
+ * Panels
+ */
+
+.panels {
+	// align-items: center;
+	align-items: flex-start;
+	display: flex;
+	flex-direction: row;
+	// justify-content: center;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 1440px; // arbitrary
+	margin: 0 auto;
+	margin-top: 10px;
+
+	// Tests for small resolution (ie. my TV)
+	//max-width: 1263px;
+	//border: 1px dashed rgba(255, 255, 0, 0.2);
+}
+
+.panel {
+	// background: $panel-bg-main;
+	background: $panel-bg-dark;
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	margin: 0 10px;
+	min-height: 400px;
+	padding: 15px;
+	position: sticky;
+	top: 20px;
+
+	&--saved {
+		width: 15%;
+		max-width: 250px;
+	}
+
+	&--editor {
+		width: 50%;
+		max-width: 720px;
+		padding: 25px 30px;
+	}
+
+	&--result {
+		width: 30%;
+		max-width: 425px;
+	}
+
+	// 1536px
+	@include bp-until($bp-laptop-lg) {
+		&--saved {
+			// width: 20%;
+		}
+	}
+}

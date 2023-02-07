@@ -1,0 +1,227 @@
+/**
+ * Create (main editor)
+ */
+
+.row {
+	margin-bottom: 10px;
+
+	&--buttons {
+		margin-top: -5px;
+	}
+}
+
+.labelwrap {
+	display: flex;
+
+	&--has-btns {
+		.field--buttons {
+			margin-left: 15px;
+		}
+	}
+
+	&--nocols {
+		display: block;
+
+		.labeltext {
+			width: 100%;
+		}
+	}
+}
+
+.labeltext {
+	font-weight: 600;
+	padding: 5px 10px 10px 10px;
+	width: 100px;
+
+	&--empty {
+		padding: 0;
+	}
+}
+
+.field {
+	select,
+	input[type="text"],
+	input[type="number"],
+	textarea {
+		background: $black;
+		border-radius: 3px;
+		border: 1px solid grey;
+		color: $white;
+		font-size: 1rem;
+		padding: 10px;
+		width: 200px;
+	}
+
+	textarea {
+		font-size: 0.9rem;
+	}
+
+	input[type="checkbox"] {
+		padding: 10px;
+		width: 20px;
+	}
+
+
+	&--tier select {
+		width: 88px;
+	}
+
+	&--width input[type="number"] {
+		width: 100px;
+	}
+
+	&--has-checkbox {
+		padding: 10px 0;
+	}
+
+	&--editor {
+		textarea {
+			min-height: 150px;
+			max-height: 300px;
+			min-width: 300px;
+			max-width: 500px;
+			width: 100%;
+		}
+	}
+
+	&--buttons {
+		// padding: 0 0 10px 0px;
+
+		button {
+			margin-right: 5px;
+		}
+	}
+}
+
+
+// Help Notes
+// ============================================================================
+
+.helpnotes {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.helpnote {
+	color: rgba($white, 0.4);
+	padding: 0 10px;
+	text-align: center;
+}
+
+
+// Editor iBox
+// ============================================================================
+
+$ibox-name-size: 1.1em;
+$ibox-type-size: 1.1em;
+$ibox-text-size: 1em;
+
+.ibox--editable {
+	max-width: unset;
+	width: 100%;
+	border-width: 2px;
+	border-radius: 5px;
+
+	input, textarea {
+		background: rgba($white, 0.1);
+		border: 1px dashed rgba($white, 0.2);
+		font-size: inherit;
+		color: inherit;
+		width: 100%;
+		font-family: inherit;
+		font-weight: inherit;
+	}
+
+	.ibox__icon {
+		cursor: pointer;
+	}
+
+	.ibox__name {
+		margin-bottom: 3px;
+		input, textarea {
+			font-size: ($ibox-name-size * 1.2);
+		}
+	}
+
+	.ibox__type {
+		input {
+			font-size: ($ibox-type-size * 1.1);
+		}
+	}
+
+	.ibox__stats {
+		position: relative;
+		line-height: 1.8;
+		font-size: 1rem;
+		letter-spacing: 0.7px; // makes characters like `-` slightly more readable
+
+		textarea {
+			height: 250px;
+			max-width: 100%;
+			min-width: 100%;
+			max-height: 400px;
+			min-height: 200px;
+			line-height: inherit;
+			font-size: inherit;
+			letter-spacing: inherit;
+
+			// Enable this stuff for the syntax highlighting overlay
+			// color: transparent;
+			// caret-color: $white;
+
+			// debug: for testing
+			// display: none;
+			// opacity: 0.1;
+		}
+
+		.ibox__stats-overlay {
+			display: none; // disable this to show the overlay
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			opacity: 0.7;
+			padding: 10px;
+			pointer-events: none;
+			user-select: none;
+		}
+	}
+}
+
+.editortext {
+	margin-top: 20px;
+
+	&__row {
+		margin-bottom: 10px;
+
+		&--smb {
+			margin-bottom: 5px;
+		}
+	}
+}
+
+.width-opts {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	// margin-top: 20px;
+	margin-bottom: 20px;
+	margin-top: -10px;
+
+	// make it look like a toggle
+	.btn {
+		border-radius: 4px 0 0 4px;
+
+		+ .btn {
+			border-radius: 0 4px 4px 0;
+			border-left-width: 0;
+		}
+	}
+
+	// .btn--toggle-left {
+		//
+	// }
+}

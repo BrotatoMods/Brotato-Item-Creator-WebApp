@@ -6,22 +6,39 @@
 	text-transform: uppercase;
 }
 
+// had to make these important for syntax highlighting, to fix I need to sort
+// this stuff out: `code:not(.overlay)`
 .text-positive {
-	color: $stat-positive;
-	// color: $pastel-positive;
+	color: $stat-positive !important;
+
+	&--pastel {
+		color: $pastel-positive !important;
+	}
 }
 
 .text-negative {
-	color: $stat-negative;
-	// color: $pastel-negative;
+	color: $stat-negative !important;
+
+	&--pastel {
+		color: $pastel-negative !important;
+	}
 }
 
 .text-cream {
-	color: $cream;
+	color: $cream !important;
 }
+
+.text-grey {
+	color: rgb(178, 178, 178) !important;
+}
+
 
 .mt-5 {
 	margin-top: 5px;
+}
+
+.flex {
+	display: flex;
 }
 
 .flex-center {
@@ -32,6 +49,18 @@
 	justify-content: center;
 	width: 100%;
 }
+
+.flex-right {
+	align-items: flex-end;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+}
+
+// .flex-row {
+	// flex-direction: row;
+// }
 
 .rounded {
 	border-radius: 4px;

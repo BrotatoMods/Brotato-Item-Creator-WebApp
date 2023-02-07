@@ -1,5 +1,25 @@
+.header {
+	margin-top: 20px;
+	padding: 5px 10px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	// background: $panel-bg-dark;
+	// justify-content: space-between;
+	// border-bottom: 1px solid lighten($panel-bg-dark, 15);
 
-header {
-	margin-top: 40px;
-	padding: 20px 40px;
+	h1 {
+		font-size: 1.6rem;
+		color: $white;
+		text-align: center;
+		line-height: 40px;
+		height: 40px;
+		// font-size: 1.2rem;
+		// color: rgba($white, 0.3);
+		// text-align: left;
+	}
+
+	.header__save {
+		display: none;
+	}
 }
