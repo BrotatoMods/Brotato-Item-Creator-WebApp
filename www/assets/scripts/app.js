@@ -38,6 +38,9 @@ createApp({
 				'Gun1': 'sg/gun1.png',
 				'Gun2': 'sg/gun2.png',
 				'Ring': 'sg/ring.png',
+				'Asteroid': 'sg/Asteroid.png',
+				'Lava_Balls': 'sg/Lava_Balls.png',
+				'Spicy_Food': 'sg/Spicy_Food.png',
 				'Empty': 'empty.png',
 			},
 
