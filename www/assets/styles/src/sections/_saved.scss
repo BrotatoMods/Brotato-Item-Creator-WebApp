@@ -27,11 +27,25 @@
 	line-height: 1.5;
 	margin-bottom: 5px;
 
+	@include bp-until($bp-tablet-po) {
+		font-size: 1.1rem;
+		line-height: 1.8;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		// padding-top: 5px;
+		// padding-bottom: 5px;
+		padding: 5px;
+
+		&:nth-of-type(odd) {
+			background-color: rgba($white, 0.05);
+		}
+	}
+
 	&__main {
 		width: 90%;
 
 		&:hover {
-			background: rgba(255, 255, 255, 0.1);
+			background: rgba($white, 0.1);
 			cursor: pointer;
 		}
 	}
@@ -63,6 +77,11 @@
 		margin-left: 10px;
 		text-align: center;
 		width: 10%;
+
+		@include bp-until($bp-tablet-po) {
+			// height: auto;
+			height: 30px;
+		}
 
 		&:hover {
 			background-color: $app-negative-active;

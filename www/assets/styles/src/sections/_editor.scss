@@ -89,6 +89,10 @@
 
 		button {
 			margin-right: 5px;
+
+			@include bp-until($bp-tablet-po) {
+				margin-bottom: 10px;
+			}
 		}
 	}
 }
@@ -124,7 +128,8 @@ $ibox-text-size: 1em;
 	border-width: 2px;
 	border-radius: 5px;
 
-	input, textarea {
+	input,
+	textarea {
 		background: rgba($white, 0.1);
 		border: 1px dashed rgba($white, 0.2);
 		font-size: inherit;
@@ -132,6 +137,11 @@ $ibox-text-size: 1em;
 		width: 100%;
 		font-family: inherit;
 		font-weight: inherit;
+		padding: 5px;
+
+		@include bp-until($bp-tablet-po) {
+			padding: 10px;
+		}
 	}
 
 	.ibox__icon {
@@ -140,6 +150,7 @@ $ibox-text-size: 1em;
 
 	.ibox__name {
 		margin-bottom: 3px;
+
 		input, textarea {
 			font-size: ($ibox-name-size * 1.2);
 		}
@@ -158,9 +169,24 @@ $ibox-text-size: 1em;
 			margin-left: 5px;
 			width: 210px;
 
+			@include bp-until($bp-tablet-po) {
+				margin-left: 0;
+				margin-top: 10px;
+				width: auto;
+			}
+
 			.btn {
 				margin-left: 5px;
+
+				@include bp-until($bp-tablet-po) {
+					margin-left: 0;
+					margin-right: 5px;
+				}
 			}
+		}
+
+		@include bp-until($bp-tablet-po) {
+			flex-wrap: wrap;
 		}
 	}
 

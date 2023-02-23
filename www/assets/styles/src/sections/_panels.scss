@@ -3,20 +3,25 @@
  */
 
 .panels {
-	// align-items: center;
 	align-items: flex-start;
 	display: flex;
 	flex-direction: row;
-	// justify-content: center;
 	justify-content: space-between;
-	width: 100%;
-	max-width: 1440px; // arbitrary
-	margin: 0 auto;
 	margin-top: 10px;
+	margin: 0 auto;
+	max-width: 1440px; // arbitrary
+	width: 100%;
+	// align-items: center;
+	// justify-content: center;
 
 	// Tests for small resolution (ie. my TV)
 	//max-width: 1263px;
 	//border: 1px dashed rgba(255, 255, 0, 0.2);
+
+	@include bp-until($bp-laptop-sm) {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
 }
 
 .panel {
@@ -30,26 +35,62 @@
 	position: sticky;
 	top: 20px;
 
+	@include bp-until($bp-laptop-sm) {
+		margin-bottom: 20px;
+		position: static;
+	}
+
+	@include bp-until($bp-tablet-po) {
+	}
+
 	&--saved {
-		width: 15%;
 		max-width: 250px;
+		width: 15%;
+
+		// 1024px
+		@include bp-until($bp-laptop-sm) {
+			// max-width: 100%;
+			order: 2;
+			width: 30%;
+		}
+
+		@include bp-until($bp-tablet-po) {
+			order: 3;
+			width: 100%;
+			max-width: 100%;
+		}
 	}
 
 	&--editor {
-		width: 50%;
 		max-width: 720px;
 		padding: 25px 30px;
+		width: 50%;
+
+		@include bp-until($bp-laptop-sm) {
+			max-width: 100%;
+			order: 1;
+			width: 70%;
+			width: auto;
+		}
+
+		@include bp-until($bp-tablet-po) {
+			padding: 10px;
+		}
 	}
 
 	&--result {
-		width: 30%;
 		max-width: 425px;
-	}
+		width: 30%;
 
-	// 1536px
-	@include bp-until($bp-laptop-lg) {
-		&--saved {
-			// width: 20%;
+		@include bp-until($bp-laptop-sm) {
+			// max-width: 100%;
+			order: 3;
+			width: 100%;
+		}
+
+		@include bp-until($bp-tablet-po) {
+			order: 2;
+			width: 100%;
 		}
 	}
 }

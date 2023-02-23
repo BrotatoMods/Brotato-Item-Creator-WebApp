@@ -9,6 +9,10 @@
 	cursor: pointer;
 	padding: 5px 10px;
 
+	@include bp-until($bp-tablet-po) {
+		padding: 10px 15px;
+	}
+
 	&--default-bg {
 		background: rgba(255, 255, 255, 0.1);
 
@@ -44,6 +48,10 @@
 	&--staticon {
 		margin-bottom: 3px;
 		padding: 4px 5px;
+
+		@include bp-until($bp-tablet-po) {
+			padding: 8px 12px;
+		}
 
 		img {
 			height: auto;
@@ -87,6 +95,11 @@
 	margin-left: 5px;
 	height: 30px;
 	width: 30px;
+
+	@include bp-until($bp-tablet-po) {
+		height: 35px;
+		width: 35px;
+	}
 
 	.btn__text {
 		font-size: 1rem;
